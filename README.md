@@ -1,6 +1,8 @@
 # C++ Image Processor
 This image processor project was the basis for my C++ class at CSU
 
+- Note: The run method was altered every assignment due to assignment requirements. For example, `Image.run()` was changed to take a different number of arguments, call different methods, etc.
+
 ## Assignment 0
 - Validate given files and report any errors in format or syntax
     - Implemented:
