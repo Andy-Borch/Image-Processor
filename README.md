@@ -1,5 +1,5 @@
 # C++ Image Processor
-This image processor project was the basis for my C++ class at CSU
+This image processor project was the basis for my C++ class at CSU. Every 2 weeks, we would get an assignment that builds off of the previous assignments.
 
 - Note: The run method was altered every assignment due to assignment requirements. For example, `Image.run()` was changed to take a different number of arguments, call different methods, etc.
 
