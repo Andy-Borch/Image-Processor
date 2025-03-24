@@ -28,5 +28,8 @@ This image processor project was the basis for my C++ class at CSU
 - Regularize given .ppm file by pixel value intensity
     - Implemented:
         - `Image.regularize()`
-        - `Image.writeRegularize()` 
+        - `Image.writeRegularize(filename)`
+     
+## Assignment 4
+- Convert RGB, Black and White, and Grayscale images to each other
           
