@@ -31,7 +31,17 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
         - `Image.writeRegularize(filename)`
      
 ## Assignment 4
-- Convert RGB, Black and White, and Grayscale images to each other
-    - Create Child classes `ColorImage.cpp`, `GrayscaleImage.cpp`, `BinaryImage.cpp`
-    - Used Inheritance to reuse generic methods and rewrite methods that were dependant on image type
+- Regulairze and convert RGB, Grayscale, and Binary images to other image types
+    - Created sub classes `ColorImage.cpp`, `GrayscaleImage.cpp`, `BinaryImage.cpp`
+    - Implemented `ColorImage.convertToBinary()`
+    - Implemented `ColorImage.convertToGrayscale()`
+    - Implemented `GrayscaleImage.convertToBinary()`
+    - Implemented `GrayscaleImage.convertToRGB()`
+    - Implemented `BinaryImage.convertToGrayscale()`
+    - Implemented `BinaryImage.convertToRGB()`
+    - Implemented `Image.writeBinary(filename)`
+    - Implemented `Image.writeGrayscale(filename)`
+    - Implemented `Image.writeRGB(filename)`
+    - Slightly modified methods like `load()`, `regularize()` and `writeRegularize()` in each sublass
+    - Reused methods via inheritance like `Image.imageFileIsValid(imageFile)`, `Image.providedFilesAreValid(rowChecksum, colChecksum)`, and `Image.run()`
           
