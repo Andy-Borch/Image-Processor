@@ -32,4 +32,6 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
      
 ## Assignment 4
 - Convert RGB, Black and White, and Grayscale images to each other
+    - Create Child classes `ColorImage.cpp`, `GrayscaleImage.cpp`, `BinaryImage.cpp`
+    - Used Inheritance to reuse generic methods and rewrite methods that were dependant on image type
           
