@@ -2,6 +2,7 @@
 This image processor project was the basis for my C++ class at CSU. Every 2 weeks, we would get an assignment that builds off of the previous assignments.
 
 - Note: The run method was altered every assignment due to assignment requirements. For example, `Image.run()` was changed to take a different number of arguments, call different methods, etc.
+     - It could be modified to do everything (load, compute checksums, write checksums, regularize, convert, write converted) by changing expected number of input args and adding method calls, but each assignment only needed some of at functionality. 
 
 ## Assignment 0
 - Validate given files and report any errors in format or syntax
@@ -42,6 +43,8 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
     - Implemented `Image.writeBinary(filename)`
     - Implemented `Image.writeGrayscale(filename)`
     - Implemented `Image.writeRGB(filename)`
+    - Implemented `Image.getInputFormat(filename)`
+    - Implemented `Image.getOutputFormat(filename)`
     - Slightly modified methods like `load()`, `regularize()` and `writeRegularize()` in each sublass
     - Reused methods via inheritance like `Image.imageFileIsValid(imageFile)`, `Image.providedFilesAreValid(rowChecksum, colChecksum)`, and `Image.run()`
           
