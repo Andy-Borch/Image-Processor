@@ -34,17 +34,16 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
 ## Assignment 4
 - Regulairze and convert RGB, Grayscale, and Binary images to other image types
     - Created sub classes `ColorImage.cpp`, `GrayscaleImage.cpp`, `BinaryImage.cpp`
+    - Created enum `PixelType.cpp`
     - Implemented `ColorImage.convertToBinary()`
     - Implemented `ColorImage.convertToGrayscale()`
     - Implemented `GrayscaleImage.convertToBinary()`
     - Implemented `GrayscaleImage.convertToRGB()`
     - Implemented `BinaryImage.convertToGrayscale()`
     - Implemented `BinaryImage.convertToRGB()`
-    - Implemented `Image.writeBinary(filename)`
-    - Implemented `Image.writeGrayscale(filename)`
-    - Implemented `Image.writeRGB(filename)`
     - Implemented `Image.getInputFormat(filename)`
     - Implemented `Image.getOutputFormat(filename)`
+    - Implemented `Image.writeFile(filename, PixelType)`
     - Slightly modified methods like `load()`, `regularize()` and `writeRegularize()` in each sublass
     - Reused methods via inheritance like `Image.imageFileIsValid(imageFile)`, `Image.providedFilesAreValid(rowChecksum, colChecksum)`, and `Image.run()`
           
