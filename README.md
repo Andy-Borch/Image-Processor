@@ -43,7 +43,10 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
     - Implemented `BinaryImage.convertToRGB()`
     - Implemented `Image.getInputFormat(filename)`
     - Implemented `Image.getOutputFormat(filename)`
-    - Implemented `Image.writeFile(filename, PixelType)`
-    - Slightly modified methods like `load()`, `regularize()` and `writeRegularize()` in each sublass
+    - Implemented `Image.writeImage(filename, PixelType)`
+    - Removed `ColorImage.writeRegulairzed(filename)`, `GrayscaleImage.writeRegulairzed(filename)`, `BinaryImage.writeRefularized(filename)`
+
+        - To make code cleaner, `Image.writeImage(filename, PixelType)` can write any type of image, regularized or not, so it is used for all image writing
+    - Slightly modified methods like `load()` and `regularize()` in each sublass
     - Reused methods via inheritance like `Image.imageFileIsValid(imageFile)`, `Image.providedFilesAreValid(rowChecksum, colChecksum)`, and `Image.run()`
           
