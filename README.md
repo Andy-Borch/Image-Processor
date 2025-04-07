@@ -35,18 +35,30 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
 - Regulairze and convert RGB, Grayscale, and Binary images to other image types
     - Created sub classes `ColorImage.cpp`, `GrayscaleImage.cpp`, `BinaryImage.cpp`
     - Created enum `PixelType.cpp`
-    - Implemented `ColorImage.convertToBinary()`
-    - Implemented `ColorImage.convertToGrayscale()`
-    - Implemented `GrayscaleImage.convertToBinary()`
-    - Implemented `GrayscaleImage.convertToRGB()`
-    - Implemented `BinaryImage.convertToGrayscale()`
-    - Implemented `BinaryImage.convertToRGB()`
-    - Implemented `Image.getInputFormat(filename)`
-    - Implemented `Image.getOutputFormat(filename)`
-    - Implemented `Image.writeImage(filename, PixelType)`
+    - Implemented:
+         - `ColorImage.convertToBinary()`
+      - `ColorImage.convertToGrayscale()`
+      - `GrayscaleImage.convertToBinary()`
+      - `GrayscaleImage.convertToRGB()`
+      - `BinaryImage.convertToGrayscale()`
+      - `BinaryImage.convertToRGB()`
+      - `Image.getInputFormat(filename)`
+      - `Image.getOutputFormat(filename)`
+      - `Image.writeImage(filename, PixelType)`
     - Removed `ColorImage.writeRegulairzed(filename)`, `GrayscaleImage.writeRegulairzed(filename)`, `BinaryImage.writeRefularized(filename)`
 
         - To make code cleaner, `Image.writeImage(filename, PixelType)` can write any type of image, regularized or not, so it is used for all image writing
     - Slightly modified methods like `load()` and `regularize()` in each sublass
     - Reused methods via inheritance like `Image.imageFileIsValid(imageFile)`, `Image.providedFilesAreValid(rowChecksum, colChecksum)`, and `Image.run()`
+ 
+## Assignment 5
+- Generate Doxygen comments and documentation
+- Calculate correlation between 2 grayscale images
+ 
+## Future Improvements
+- Improve polymorphism and inheritance
+- Parallelize regularize and conversion methods with OpenMP and/or CUDA
+  - And any others that might benefit from parallelization
+- Make the run method compute certain things based on input args so user can decide what the program does
+
           
