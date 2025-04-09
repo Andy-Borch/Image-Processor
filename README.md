@@ -43,7 +43,6 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
       - `BinaryImage.convertToGrayscale()`
       - `BinaryImage.convertToRGB()`
       - `Image.getInputFormat(filename)`
-      - `Image.getOutputFormat(filename)`
       - `Image.writeImage(filename, PixelType)`
     - Removed `ColorImage.writeRegulairzed(filename)`, `GrayscaleImage.writeRegulairzed(filename)`, `BinaryImage.writeRefularized(filename)`
 
@@ -54,6 +53,10 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
 ## Assignment 5
 - Generate Doxygen comments and documentation
 - Calculate correlation between 2 grayscale images
+- Implemented:
+     - `GrayscaleImage.correlation(image1, image2)`
+     - `GrayscaleImage.getAverageIntensity(image)`
+- Added comments to document code using doxygen
  
 ## Future Improvements
 - Improve polymorphism and inheritance
