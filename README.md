@@ -1,5 +1,5 @@
 # C++ Image Processor
-This image processor project was the basis for my C++ class at CSU. Every 2 weeks, we would get an assignment that builds off of the previous assignments.
+This image processor project was the basis for my C++ class at CSU. Every 2 weeks, we would get an assignment that builds off of the previous assignments. All of the code can be found in the `ImageProcessor` directory, which includes an `html` directory for code documentation. 
 
 - Note: The run method was altered every assignment due to assignment requirements. For example, `Image.run()` was changed to take a different number of arguments, call different methods, etc.
      - It could be modified to do everything (load, compute checksums, write checksums, regularize, convert, write converted) by changing expected number of input args and adding method calls, but each assignment only needed some of that functionality. 
@@ -63,5 +63,6 @@ This image processor project was the basis for my C++ class at CSU. Every 2 week
 - Parallelize regularize and conversion methods with OpenMP and/or CUDA
   - And any others that might benefit from parallelization
 - Make the run method compute certain things based on input args so user can decide what the program does
+- Add a link in this readme to the documentation page
 
           
