@@ -2,7 +2,7 @@
 
 This project was developed as a part of my C++ course at Colorado State University. Over the course of the semester, we extended the functionality of the image processing program through a series of assignments, each building on the previous one.
 
-All code is located in the `ImageProcessor` directory. HTML documentation generated using Doxygen can be found in the `html` directory.
+All code is located in the `ImageProcessor` directory. HTML documentation generated using Doxygen can be found in the `html` directory. The only provided code was the makefile.
 
 All methods are designed to gracefully exit and provide informative output if input files are missing, improperly formatted, or otherwise invalid. The program has been tested across a variety of inputs during development, but it has not been exhaustively tested, so certain edge cases may still cause unexpected behavior or crashes.
 
