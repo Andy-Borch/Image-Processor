@@ -97,6 +97,7 @@ All methods are designed to gracefully exit and provide informative output if in
 - Refactor `run()` method to dynamically determine actions based on user input.
 - Add a link to this README pointing to the generated Doxygen documentation.
 - Improve error detection and messages
+- Add unit tests
 
 ---
 
