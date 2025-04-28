@@ -90,6 +90,12 @@ All methods are designed to gracefully exit and provide informative output if in
 
 ---
 
+### Assignment 6: Optimization with Valgrind
+
+- Speed up correlation from Assignment 5 using Valgrind profiler
+
+---
+
 ## Future Improvements
 
 - Improve polymorphism and inheritance structure.
