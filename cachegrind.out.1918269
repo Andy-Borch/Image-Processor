@@ -1,0 +1,4701 @@
+cmd: ./ImageProcessor large_testimage1.pgm large_testimage1.pgm
+events: Ir
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/BinaryImage.cpp
+fn=_GLOBAL__sub_I__ZN11BinaryImageC2Ev
+112 2
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/ColorImage.cpp
+fn=_GLOBAL__sub_I__ZN10ColorImageC2Ev
+165 2
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/GrayscaleImage.cpp
+fn=GrayscaleImage::GrayscaleImage()
+3 16
+fn=GrayscaleImage::correlation(GrayscaleImage const&, GrayscaleImage const&)
+144 7
+145 3
+150 3
+151 3
+153 2
+154 3
+156 3
+157 1
+158 2
+160 6484
+161 4150440
+162 4148280
+163 4147200
+166 10368000
+169 4147200
+170 4147200
+175 7
+177 2
+179 5
+186 1
+187 8
+fn=GrayscaleImage::getAverageIntensity(GrayscaleImage const&)
+190 6
+191 4
+192 12972
+193 8298720
+194 12445920
+197 8
+199 8
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+5 18
+7 4
+13 8
+20 6
+21 4
+26 6
+27 4
+31 2
+34 6
+35 4
+39 2
+42 6
+43 4
+47 2
+50 6
+55 6488
+56 12450240
+57 24883200
+62 8294400
+68 16588800
+73 8640
+75 8294400
+76 12
+78 8294400
+79 44
+85 12
+91 18
+fn=_GLOBAL__sub_I__ZN14GrayscaleImageC2Ev
+199 2
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/Image.cpp
+fn=Image::Image(int, int)
+13 12
+14 2
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+70 7
+72 2
+77 3
+79 7
+fn=Image::imageFileIsValid(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+55 10
+58 4
+63 8
+67 2
+68 12
+fn=Image::run(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+16 6
+17 3
+19 2
+24 2
+25 2
+27 12
+28 12
+33 4
+35 3
+41 6
+fn=_GLOBAL__sub_I__ZN5ImageC2Eii
+171 2
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/Image.h
+fn=Image::run(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+20 2
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/Pixel.cpp
+fn=Pixel::Pixel()
+8 15360
+10 3840
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/Pixel.h
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+40 8294400
+fl=/s/chopin/g/under/aborch/ct301/ImageProccesor/Image-Processor/main.cpp
+fn=_GLOBAL__sub_I_main
+13 2
+fn=main
+3 2
+4 3
+9 12
+13 3
+fl=/usr/include/c++/8/bits/basic_ios.h
+fn=GrayscaleImage::correlation(GrayscaleImage const&, GrayscaleImage const&)
+49 2
+450 2
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+202 4147202
+282 18
+462 60
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+282 3
+462 10
+fn=Image::imageFileIsValid(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+282 6
+462 20
+fl=/usr/include/c++/8/bits/basic_string.h
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+150 8
+153 8
+172 2
+176 8
+204 4
+215 8
+224 24
+1936 14
+2307 2
+2716 20736030
+6088 8
+6415 24883236
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+153 2
+176 3
+186 2
+215 1
+548 3
+fn=Image::run(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+153 8
+215 5
+224 15
+240 8
+444 12
+6088 3
+fn=main
+215 2
+224 6
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .isra.18]
+150 2
+172 2
+176 2
+186 2
+204 4
+518 10
+520 18
+fn=void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+172 4
+176 4
+204 8
+fl=/usr/include/c++/8/bits/basic_string.tcc
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+211 10
+215 2
+217 4
+219 10
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .isra.18]
+215 2
+217 4
+219 10
+232 2
+fn=void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+206 24
+211 16
+215 4
+217 8
+219 16
+233 20
+fl=/usr/include/c++/8/bits/char_traits.h
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+287 8
+359 14
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+287 1
+359 3
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) [clone .isra.18]
+287 4
+329 8
+359 10
+fn=void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+287 4
+359 28
+fl=/usr/include/c++/8/bits/locale_facets.h
+fn=GrayscaleImage::correlation(GrayscaleImage const&, GrayscaleImage const&)
+874 2
+875 2
+fl=/usr/include/c++/8/bits/stl_algobase.h
+fn=std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > >::_M_fill_insert(__gnu_cxx::__normal_iterator<std::vector<Pixel, std::allocator<Pixel> >*, std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > > >, unsigned long, std::vector<Pixel, std::allocator<Pixel> > const&)
+684 6
+fl=/usr/include/c++/8/bits/stl_construct.h
+fn=Image::run(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+107 6488
+fn=std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > >::_M_fill_insert(__gnu_cxx::__normal_iterator<std::vector<Pixel, std::allocator<Pixel> >*, std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > > >, unsigned long, std::vector<Pixel, std::allocator<Pixel> > const&)
+107 4
+fl=/usr/include/c++/8/bits/stl_iterator_base_funcs.h
+fn=void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)
+104 8
+fl=/usr/include/c++/8/bits/stl_uninitialized.h
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+526 11522
+fn=std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > >::_M_fill_insert(__gnu_cxx::__normal_iterator<std::vector<Pixel, std::allocator<Pixel> >*, std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > > >, unsigned long, std::vector<Pixel, std::allocator<Pixel> > const&)
+79 4322
+82 24909134
+209 6482
+fl=/usr/include/c++/8/bits/stl_vector.h
+fn=GrayscaleImage::correlation(GrayscaleImage const&, GrayscaleImage const&)
+805 2072520
+806 8308443
+948 2072520
+951 3240
+959 14520600
+fn=GrayscaleImage::getAverageIntensity(GrayscaleImage const&)
+805 4145040
+806 17286
+948 4145040
+951 2160
+959 8305200
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+100 6
+296 4
+303 4
+311 2
+312 2
+313 6
+567 2
+806 41472010
+846 8
+847 10
+933 4147200
+959 24883200
+1489 2
+fn=Image::Image(int, int)
+96 18
+fn=Image::run(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+303 4332
+567 2168
+fn=std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > >::_M_fill_insert(__gnu_cxx::__normal_iterator<std::vector<Pixel, std::allocator<Pixel> >*, std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > > >, unsigned long, std::vector<Pixel, std::allocator<Pixel> > const&)
+100 6480
+296 4326
+303 4
+311 2160
+312 2160
+313 4320
+462 2160
+806 12966
+1642 22
+1645 20
+1646 8
+fl=/usr/include/c++/8/bits/vector.tcc
+fn=std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > >::_M_fill_insert(__gnu_cxx::__normal_iterator<std::vector<Pixel, std::allocator<Pixel> >*, std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > > >, unsigned long, std::vector<Pixel, std::allocator<Pixel> > const&)
+478 24
+481 4
+483 4
+484 14
+535 10
+542 2
+545 6
+549 2
+570 4
+571 2
+572 8
+575 16
+fl=/usr/include/c++/8/cmath
+fn=GrayscaleImage::correlation(GrayscaleImage const&, GrayscaleImage const&)
+620 2
+fl=/usr/include/c++/8/ext/new_allocator.h
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+101 6
+111 12
+125 8
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+86 1
+fn=Image::run(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+125 2170
+fn=main
+125 2
+fn=std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > >::_M_fill_insert(__gnu_cxx::__normal_iterator<std::vector<Pixel, std::allocator<Pixel> >*, std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > > >, unsigned long, std::vector<Pixel, std::allocator<Pixel> > const&)
+101 6480
+111 8646
+fl=/usr/include/c++/8/ext/string_conversions.h
+fn=int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+54 49766472
+63 16588824
+64 12441618
+76 8294412
+80 16588824
+82 12441618
+84 4147206
+85 20736030
+90 8294412
+94 33177648
+fl=/usr/include/c++/8/fstream
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+247 10
+261 4
+316 16
+531 10
+533 8
+567 4
+647 4
+652 4
+680 10
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+247 5
+261 2
+316 8
+531 5
+533 4
+567 2
+647 2
+652 2
+fn=Image::imageFileIsValid(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+247 10
+261 4
+316 14
+531 8
+533 6
+567 4
+647 4
+652 4
+fl=/usr/include/c++/8/iostream
+fn=_GLOBAL__sub_I__ZN10ColorImageC2Ev
+74 6
+fn=_GLOBAL__sub_I__ZN11BinaryImageC2Ev
+74 6
+fn=_GLOBAL__sub_I__ZN14GrayscaleImageC2Ev
+74 6
+fn=_GLOBAL__sub_I__ZN5ImageC2Eii
+74 6
+fn=_GLOBAL__sub_I_main
+74 6
+fl=/usr/include/c++/8/istream
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+104 30
+607 36
+608 24
+856 8
+860 8
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+104 4
+607 6
+608 4
+fn=Image::imageFileIsValid(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+104 8
+607 12
+608 8
+fl=/usr/include/c++/8/new
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+169 7680
+fn=std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > >::_M_fill_insert(__gnu_cxx::__normal_iterator<std::vector<Pixel, std::allocator<Pixel> >*, std::vector<std::vector<Pixel, std::allocator<Pixel> >, std::allocator<std::vector<Pixel, std::allocator<Pixel> > > > >, unsigned long, std::vector<Pixel, std::allocator<Pixel> > const&)
+169 8294400
+fl=/usr/include/c++/8/ostream
+fn=GrayscaleImage::correlation(GrayscaleImage const&, GrayscaleImage const&)
+221 3
+594 3
+616 2
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+93 10
+385 16
+fl=/usr/include/c++/8/sstream
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+65 4
+101 4
+116 6
+170 6
+173 8
+204 2
+208 12
+437 4
+438 8
+447 4
+705 6
+706 8
+732 6
+fl=/usr/include/c++/8/streambuf
+fn=GrayscaleImage::loadImageFast(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+205 18
+473 36
+fn=Image::getInputFormat(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+205 3
+fn=Image::imageFileIsValid(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)
+205 6
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../elf/dl-sysdep.c
+fn=_dl_sysdep_start
+88 9
+89 2
+90 2
+112 1
+113 228
+116 2
+117 1
+119 138
+120 112
+123 1
+124 1
+126 1
+127 1
+129 1
+130 2
+132 1
+133 2
+153 1
+154 2
+156 1
+157 2
+159 2
+160 2
+165 2
+166 2
+181 2
+182 2
+224 1
+227 1
+238 3
+239 2
+241 5
+253 3
+256 5
+258 9
+fn=_dl_sysdep_start_cleanup
+262 1
+263 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../elf/dl-tls.c
+fn=_dl_add_to_slotinfo
+1129 16
+1130 8
+1138 2
+1141 2
+1142 2
+1146 6
+1182 4
+1185 6
+1186 6
+1188 2
+1191 4
+1192 12
+fn=_dl_allocate_tls_init
+564 10
+565 2
+569 3
+571 2
+572 1
+575 2
+578 3
+590 1
+595 16
+601 6
+604 6
+605 4
+611 6
+612 4
+614 10
+615 2
+617 4
+618 4
+621 4
+622 8
+624 4
+625 4
+634 2
+644 4
+646 20
+649 4
+650 2
+660 2
+663 2
+666 9
+fn=_dl_allocate_tls_storage
+84 1
+90 1
+443 5
+445 1
+456 1
+460 1
+461 3
+472 4
+473 1
+477 297
+496 1
+498 2
+499 2
+504 5
+fn=_dl_assign_tls_modid
+152 4
+155 6
+208 2
+210 2
+213 2
+214 4
+fn=_dl_count_modids
+219 1
+221 2
+222 2
+fn=_dl_determine_tlsoffset
+243 6
+244 2
+245 1
+246 1
+249 3
+252 2
+286 1
+288 16
+290 4
+292 6
+293 4
+295 4
+297 10
+313 16
+315 4
+316 4
+325 2
+328 1
+329 6
+331 2
+381 1
+382 6
+fn=_dl_tls_initial_modid_limit_setup
+1091 1
+1092 1
+1094 10
+1096 7
+1097 6
+1100 4
+1103 1
+1104 1
+fn=_dl_tls_static_surplus_init
+104 3
+118 6
+122 6
+123 7
+129 1
+131 3
+134 1
+136 1
+138 3
+139 5
+fn=allocate_dtv
+387 4
+392 1
+396 1
+397 1
+398 2
+401 1
+407 3
+413 4
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../include/rtld-malloc.h
+fn=_dl_allocate_tls_storage
+56 1
+fn=_dl_check_map_versions
+44 12
+fn=_dl_important_hwcaps
+56 4
+fn=_dl_init_paths
+56 4
+fn=_dl_map_object_deps
+56 12
+fn=_dl_new_object
+44 24
+56 15
+fn=allocate_dtv
+44 2
+fn=do_lookup_x
+44 12
+fn=fillin_rpath
+50 9
+56 6
+fn=init_tls
+44 2
+fn=open_verify.constprop.9
+50 15
+fn=rtld_calloc
+56 17
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../include/scratch_buffer.h
+fn=_dl_map_object_deps
+77 4
+78 1
+85 5
+131 15
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../misc/sbrk.c
+fn=sbrk
+32 5
+40 6
+44 2
+60 5
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/generic/dl-cache.h
+fn=_dl_load_cache_lookup
+185 5
+fn=search_cache
+116 20
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/generic/dl-hash.h
+fn=__rtld_malloc_init_real
+43 1
+44 1
+45 28
+48 18
+62 24
+67 1
+72 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/generic/ldsodefs.h
+fn=_dl_relocate_object
+126 12474
+fn=do_lookup_x
+126 8835
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/posix/dl-fileid.h
+fn=_dl_map_object_from_fd
+35 30
+38 5
+39 10
+47 60
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/unix/sysv/linux/dl-osinfo.h
+fn=dl_main
+64 2
+77 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/unix/sysv/linux/dl-sysdep.c
+fn=_dl_discover_osversion
+46 5
+48 3
+88 5
+103 1
+107 1
+108 1
+110 12
+112 6
+114 16
+116 1
+117 2
+120 3
+121 3
+122 3
+124 13
+129 2
+133 5
+fn=_dl_sysdep_start
+36 2
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/unix/sysv/linux/x86/cpu-features.c
+fn=init_cpu_features.constprop.0
+28 6
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/unix/sysv/linux/x86_64/brk.c
+fn=brk
+28 1
+31 5
+33 2
+39 1
+40 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86/cpu-features.c
+fn=get_common_indices.constprop.1
+321 3
+328 5
+332 1
+333 4
+334 4
+335 4
+336 3
+337 2
+344 2
+346 9
+351 8
+358 2
+359 7
+365 2
+371 2
+fn=init_cpu_features.constprop.0
+299 4
+300 2
+301 6
+306 2
+307 6
+312 2
+313 6
+386 3
+389 1
+390 1
+391 2
+402 2
+405 6
+409 2
+411 6
+416 1
+418 3
+420 3
+421 8
+476 2
+490 1
+500 5
+514 1
+515 1
+523 2
+525 1
+530 2
+532 1
+536 3
+544 2
+546 2
+648 3
+649 1
+652 2
+653 1
+659 1
+660 1
+661 1
+662 1
+665 4
+667 6
+669 6
+671 6
+673 6
+675 6
+679 3
+692 2
+693 4
+740 1
+741 2
+745 3
+762 2
+763 3
+765 3
+766 2
+768 3
+769 2
+772 2
+785 2
+786 3
+790 4
+792 4
+842 4
+fn=update_usable.constprop.2
+50 7
+54 1
+62 3
+63 3
+72 3
+73 1
+81 4
+82 1
+83 3
+87 4
+90 4
+91 1
+94 4
+95 1
+99 4
+100 3
+101 3
+102 1
+104 4
+107 2
+111 2
+113 4
+117 2
+119 1
+122 2
+124 2
+128 1
+129 1
+132 4
+138 4
+140 3
+142 3
+147 6
+196 3
+208 2
+209 1
+212 3
+216 2
+220 3
+221 2
+223 1
+224 1
+227 2
+229 1
+232 2
+283 3
+287 3
+293 8
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86/dl-cet.c
+fn=_dl_cet_check
+245 1
+246 1
+fn=dl_cet_check
+39 7
+41 2
+42 1
+44 1
+45 1
+48 4
+49 2
+54 1
+59 2
+228 8
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86/dl-get-cpu-features.c
+fn=__x86_cpu_features
+38 3
+42 3
+fn=_dl_x86_init_cpu_features
+36 1
+38 3
+39 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86/dl-hwcap.h
+fn=_dl_important_hwcaps
+57 6
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86/dl-procinfo.h
+fn=search_cache
+39 8
+42 28
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86/dl-prop.h
+fn=_dl_process_pt_note
+53 20
+59 20
+62 5
+67 40
+70 15
+71 10
+72 10
+76 15
+80 15
+83 15
+84 10
+88 5
+89 10
+93 10
+94 5
+97 10
+100 5
+101 20
+106 10
+113 10
+116 10
+120 5
+136 5
+137 25
+142 25
+143 5
+144 10
+145 10
+153 100
+156 19
+157 10
+159 40
+160 1
+163 8
+164 64
+170 16
+171 28
+180 10
+183 10
+184 84
+fn=dl_main
+33 3
+59 4
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86_64/dl-hwcaps-subdirs.c
+fn=_dl_hwcaps_subdirs_active
+27 1
+33 8
+34 4
+40 1
+44 5
+47 5
+49 4
+50 2
+53 1
+57 2
+60 2
+62 1
+66 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86_64/dl-irel.h
+fn=_dl_fixup
+32 2
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86_64/dl-machine.h
+fn=_dl_fixup
+239 32
+fn=_dl_relocate_object
+76 13
+82 4
+86 6
+92 2
+100 6
+120 4
+122 6
+124 8
+274 8352
+295 8352
+299 8352
+306 174566
+307 37544
+310 12609
+312 8451
+315 34
+316 51
+317 34
+321 34
+328 85
+331 25056
+365 6
+366 15
+373 6
+375 4
+384 8
+427 57
+431 76
+436 57
+445 76
+455 12402
+456 4136
+468 16
+479 28
+489 18
+495 48
+499 112
+501 64
+502 16
+512 130
+513 65
+514 65
+533 5964
+538 3976
+539 5964
+549 122
+553 122
+556 183
+557 61
+561 35
+fn=_dl_start
+58 3
+271 6
+299 12
+307 60
+310 12
+331 34
+351 10
+352 5
+419 1
+538 100
+539 150
+fn=_dl_sysdep_start
+225 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86_64/dl-runtime.h
+fn=_dl_fixup
+28 32
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/../sysdeps/x86_64/dl-trampoline.h
+fn=_dl_runtime_resolve_xsave
+67 32
+72 32
+75 32
+77 32
+87 32
+93 32
+94 32
+95 32
+96 32
+97 32
+98 32
+99 32
+103 32
+104 32
+107 32
+108 32
+110 32
+111 32
+112 32
+113 32
+114 32
+115 32
+117 32
+124 32
+125 32
+126 32
+127 32
+132 32
+133 32
+134 32
+136 32
+137 32
+138 32
+139 32
+140 32
+141 32
+142 32
+144 32
+146 32
+150 32
+153 32
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/./dl-hwcaps.h
+fn=_dl_important_hwcaps
+54 4
+56 5
+88 2
+89 3
+fn=copy_hwcaps.isra.1
+54 2
+56 4
+88 2
+89 4
+fn=update_hwcaps_counts
+54 2
+56 4
+88 2
+89 4
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/./dl-load.h
+fn=_dl_map_object_from_fd
+90 20
+91 15
+93 20
+94 16
+95 24
+96 16
+98 16
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/./dl-main.h
+fn=dl_main
+109 5
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/./dl-map-segments.h
+fn=_dl_map_object_from_fd
+50 10
+56 40
+60 15
+63 15
+64 10
+66 10
+73 70
+80 10
+90 50
+92 30
+94 60
+104 40
+110 10
+111 5
+112 15
+113 10
+115 10
+120 10
+123 10
+131 40
+132 15
+137 10
+141 18
+144 6
+149 10
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/./dl-sym-post.h
+fn=lookup_malloc_symbol
+41 8
+53 12
+60 4
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-audit.c
+fn=_dl_audit_activity_map
+29 6
+30 1
+31 3
+37 6
+fn=_dl_audit_activity_nsid
+41 18
+45 12
+47 9
+51 18
+fn=_dl_audit_objclose
+97 7
+98 28
+fn=_dl_audit_objopen
+77 5
+78 20
+fn=_dl_audit_preinit
+118 1
+119 4
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-cache.c
+fn=_dl_cache_libcmp
+360 41
+361 924
+363 904
+365 10
+371 15
+372 15
+373 20
+375 20
+377 10
+383 442
+385 442
+386 72
+389 185
+390 185
+393 15
+fn=_dl_load_cache_lookup
+406 24
+408 8
+411 12
+414 6
+422 6
+423 8
+426 7
+427 1
+429 1
+434 1
+435 2
+480 9
+485 12
+488 20
+503 8
+507 8
+515 72
+516 16
+517 8
+518 12
+fn=_dl_unload_cache
+527 2
+528 4
+530 2
+531 1
+535 1
+537 2
+fn=search_cache
+180 1
+190 44
+202 52
+204 4
+206 4
+207 28
+209 36
+210 12
+212 28
+219 72
+221 72
+222 80
+226 72
+230 108
+231 72
+239 10
+241 19
+244 46
+246 46
+258 8
+268 8
+269 12
+271 8
+278 8
+286 4
+296 16
+298 12
+299 8
+303 12
+311 8
+332 8
+335 20
+349 32
+350 18
+352 14
+356 40
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-call-libc-early-init.c
+fn=_dl_call_libc_early_init
+27 4
+29 2
+33 7
+37 2
+39 4
+40 2
+41 3
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-debug.c
+fn=_dl_debug_initialize
+46 7
+49 14
+50 7
+54 26
+57 1
+58 9
+59 5
+60 2
+64 1
+fn=_dl_debug_state
+73 2
+74 2
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-deps.c
+fn=_dl_map_object_deps
+144 4
+145 2
+146 7
+148 3
+152 8
+159 12
+160 20
+176 11
+177 1
+180 2
+198 2
+199 2
+200 2
+202 18
+206 7
+209 14
+213 28
+214 46
+217 15
+221 15
+224 22
+226 15
+231 5
+232 5
+233 10
+234 10
+237 594
+238 287
+244 108
+246 12
+248 48
+249 24
+258 12
+260 24
+265 35
+268 5
+269 5
+270 5
+271 10
+273 5
+275 25
+279 36
+280 24
+282 387
+287 3
+303 12
+380 12
+433 21
+435 15
+438 10
+439 10
+445 5
+446 25
+447 25
+450 5
+451 5
+455 28
+457 7
+458 34
+464 6
+465 1
+468 4
+479 3
+481 2
+486 4
+487 1
+488 2
+490 24
+494 21
+498 14
+500 35
+505 7
+508 2
+560 3
+597 3
+598 5
+612 3
+617 8
+618 4
+622 1
+624 1
+625 1
+626 2
+633 3
+636 3
+639 8
+fn=openaux
+61 36
+64 120
+65 24
+68 12
+69 24
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-environ.c
+fn=_dl_next_ld_env_entry
+28 4
+29 4
+32 220
+34 144
+35 22
+37 3
+40 6
+42 3
+45 69
+49 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-error-skeleton.c
+fn=_dl_catch_error
+225 8
+227 4
+228 2
+229 2
+230 2
+232 5
+fn=_dl_catch_exception
+175 104
+178 26
+199 26
+200 26
+203 26
+206 91
+208 39
+209 26
+210 52
+219 52
+fn=_dl_receive_error
+238 4
+239 1
+240 1
+243 1
+244 1
+246 2
+248 1
+249 1
+250 4
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-fini.c
+fn=_dl_fini
+30 9
+47 6
+50 7
+53 2
+55 1
+58 2
+60 6
+65 1
+67 3
+72 17
+77 25
+79 14
+81 14
+83 14
+84 7
+85 7
+89 7
+91 6
+92 6
+98 6
+107 2
+112 28
+114 7
+116 21
+119 14
+122 21
+123 6
+126 10
+137 20
+138 5
+139 10
+140 40
+141 5
+145 10
+146 15
+152 14
+157 7
+161 5
+167 6
+173 2
+180 8
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-hwcaps.c
+fn=_dl_important_hwcaps
+100 3
+102 2
+105 1
+108 1
+112 4
+125 12
+127 10
+128 4
+129 4
+130 2
+133 2
+142 16
+143 2
+151 2
+155 7
+156 2
+157 4
+161 1
+162 2
+163 4
+172 15
+173 7
+175 2
+176 4
+184 3
+185 3
+186 6
+187 5
+189 1
+195 1
+196 7
+200 19
+201 7
+202 2
+208 17
+209 2
+210 11
+211 4
+213 1
+214 2
+215 5
+216 2
+218 3
+220 2
+221 2
+222 3
+225 5
+226 1
+229 2
+233 5
+234 1
+237 3
+238 2
+240 3
+241 3
+242 5
+243 2
+247 1
+250 2
+254 11
+261 3
+262 2
+269 1
+270 4
+271 8
+272 6
+275 1
+276 1
+283 2
+285 1
+307 2
+310 15
+317 2
+320 2
+323 10
+326 11
+327 23
+328 7
+331 10
+333 6
+338 25
+339 24
+343 18
+346 36
+347 96
+348 48
+350 9
+353 3
+354 2
+355 14
+357 6
+358 2
+360 1
+361 4
+368 19
+369 4
+371 8
+374 2
+375 4
+380 9
+fn=copy_hwcaps.isra.1
+72 14
+77 16
+79 6
+80 16
+84 2
+85 2
+86 6
+87 4
+88 4
+90 12
+fn=update_hwcaps_counts
+49 8
+52 16
+54 2
+55 4
+56 4
+57 2
+59 8
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-hwcaps_split.c
+fn=_dl_hwcaps_contains
+66 6
+67 12
+68 6
+77 6
+fn=_dl_hwcaps_split
+25 1
+26 3
+47 2
+fn=_dl_hwcaps_split.part.1
+24 36
+34 84
+35 12
+36 33
+37 12
+41 27
+42 18
+43 9
+45 12
+46 9
+47 48
+fn=_dl_hwcaps_split_masked
+26 42
+30 36
+34 12
+51 33
+54 24
+55 5
+56 9
+57 27
+58 54
+62 22
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-init.c
+fn=_dl_init
+30 35
+79 12
+80 1
+81 1
+84 3
+87 2
+92 2
+117 1
+118 30
+119 21
+122 2
+123 8
+fn=call_init.part.0
+28 48
+36 21
+39 28
+40 3
+44 24
+45 3
+49 10
+58 35
+62 10
+68 15
+70 10
+71 73
+72 64
+74 36
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-load.c
+fn=_dl_dst_count
+236 96
+239 32
+242 32
+243 16
+262 112
+fn=_dl_init_paths
+688 11
+702 4
+707 1
+709 2
+716 5
+717 2
+721 4
+723 4
+729 1
+730 1
+738 3
+740 3
+741 2
+743 4
+744 2
+749 67
+750 20
+752 4
+758 1
+759 1
+764 1
+767 3
+769 4
+771 3
+788 2
+790 3
+804 2
+807 4
+809 22
+813 2
+814 345
+815 342
+816 4
+818 1
+820 2
+826 7
+829 3
+835 1
+839 7
+fn=_dl_map_object
+664 36
+1931 130
+1933 5
+1939 26
+1940 52
+1943 280
+1948 406
+1950 290
+1954 100
+1955 150
+1958 28
+1959 84
+1960 140
+1974 50
+1983 15
+1998 5
+2000 25
+2004 16
+2006 8
+2013 16
+2017 12
+2018 4
+2022 12
+2023 4
+2025 40
+2037 8
+2038 44
+2039 4
+2048 8
+2063 8
+2064 60
+2070 20
+2071 4
+2079 4
+2093 8
+2095 12
+2099 12
+2101 8
+2105 8
+2113 12
+2136 36
+2140 12
+2141 8
+2154 12
+2158 8
+2164 1
+2165 3
+2166 2
+2167 3
+2171 9
+2174 3
+2186 20
+2188 16
+2232 10
+2233 75
+2235 122
+fn=_dl_map_object_from_fd
+877 75
+887 20
+904 105
+905 40
+922 10
+950 20
+960 10
+982 40
+983 10
+994 10
+995 20
+996 10
+998 15
+999 20
+1000 5
+1015 5
+1017 5
+1019 95
+1020 5
+1021 5
+1027 373
+1028 413
+1034 10
+1039 10
+1040 30
+1045 2
+1046 1
+1051 50
+1056 70
+1063 40
+1074 20
+1075 60
+1076 40
+1077 10
+1078 30
+1079 20
+1083 20
+1084 30
+1088 20
+1089 80
+1099 10
+1102 6
+1106 2
+1107 4
+1108 6
+1111 6
+1112 4
+1115 2
+1120 8
+1127 30
+1135 10
+1136 5
+1139 10
+1140 10
+1141 5
+1144 70
+1152 10
+1165 10
+1175 50
+1187 20
+1196 15
+1203 10
+1204 10
+1224 15
+1243 10
+1245 25
+1293 15
+1294 4
+1297 20
+1306 10
+1308 20
+1310 10
+1326 10
+1330 10
+1331 10
+1348 10
+1349 1
+1352 15
+1357 10
+1367 10
+1374 40
+1375 15
+1376 51
+1377 8
+1378 2
+1384 10
+1385 8
+1390 4
+1397 15
+1400 20
+1419 10
+1423 35
+1424 20
+1428 45
+fn=expand_dynamic_string_token
+383 28
+393 8
+396 8
+397 8
+408 20
+fn=fillin_rpath
+452 16
+454 1
+456 24
+463 6
+465 12
+469 6
+474 6
+475 6
+482 21
+487 12
+491 36
+492 18
+510 9
+514 9
+516 6
+520 6
+521 6
+522 12
+523 6
+525 6
+526 3
+531 12
+532 105
+533 30
+535 6
+536 9
+541 6
+543 6
+544 3
+547 9
+553 1
+556 9
+fn=open_path
+1779 32
+1780 8
+1783 8
+1784 4
+1786 8
+1791 112
+1798 12
+1803 48
+1810 60
+1811 435
+1814 240
+1819 429
+1822 78
+1828 78
+1831 312
+1833 117
+1835 60
+1840 60
+1841 240
+1847 150
+1849 180
+1850 6
+1852 111
+1859 36
+1861 117
+1869 24
+1897 4
+1900 84
+1905 12
+1907 60
+1910 12
+1924 36
+fn=open_verify.constprop.9
+1481 528
+1520 132
+1525 39
+1539 220
+1541 88
+1546 30
+1552 5
+1553 15
+1554 5
+1558 35
+1560 10
+1562 10
+1564 10
+1570 10
+1586 89
+1645 10
+1650 10
+1652 20
+1658 10
+1664 25
+1665 20
+1666 10
+1687 236
+1688 124
+1701 24
+1704 32
+1705 27
+1710 6
+1711 48
+1721 18
+1722 30
+1729 60
+1731 8
+1732 96
+1735 24
+1740 2
+1741 10
+1744 4
+1747 4
+1748 8
+1749 2
+1750 8
+1751 6
+1765 396
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-lookup-direct.c
+fn=_dl_lookup_direct
+74 13
+75 1
+76 2
+78 6
+79 2
+81 4
+84 5
+86 3
+87 6
+90 2
+115 1
+116 9
+fn=check_match
+31 5
+32 1
+33 4
+35 2
+36 2
+48 4
+51 1
+53 8
+57 2
+58 6
+59 3
+61 3
+64 7
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-lookup.c
+fn=_dl_lookup_symbol_x
+592 5966
+593 520991
+594 506076
+609 5890
+852 41762
+854 5966
+855 5966
+858 2983
+862 11848
+864 23864
+865 14915
+871 6194
+872 50673
+877 5966
+879 228
+896 38
+897 76
+901 23544
+941 11780
+955 8835
+956 2
+958 8835
+963 5890
+965 26847
+fn=_dl_setup_hash
+972 7
+975 21
+977 7
+979 14
+980 7
+981 7
+983 21
+984 7
+985 21
+987 7
+988 14
+990 7
+992 21
+997 7
+fn=check_match
+69 26577
+72 20671
+77 2944
+85 23600
+88 7165
+92 2950
+93 5900
+95 5892
+114 5892
+115 23568
+116 14675
+117 22
+118 22
+143 8
+145 24
+146 16
+149 2
+150 7
+152 3
+154 9
+161 17718
+fn=do_lookup_x
+169 280
+170 280
+171 940
+173 98
+174 294
+175 528
+178 152
+179 152
+180 152
+181 222
+190 66
+220 122
+221 366
+223 976
+225 366
+226 122
+227 366
+229 726
+230 2519
+233 1012
+234 160
+236 200
+246 120
+247 120
+249 80
+250 40
+253 426
+256 132
+257 396
+258 264
+261 972
+268 10
+271 4
+278 296
+279 276
+280 280
+284 18
+285 2
+287 4
+288 17674
+304 3
+312 2
+314 2
+317 1
+318 1
+319 939
+322 1394
+330 328
+341 492
+346 164
+348 246
+349 164
+362 38779
+363 2983
+368 2983
+369 2983
+373 19700
+376 19700
+380 39496
+401 19668
+405 19668
+411 29502
+415 9834
+416 9834
+419 29502
+420 29502
+423 9834
+424 19668
+426 9834
+427 8949
+428 19668
+431 49170
+434 68838
+437 6338
+438 9507
+439 6338
+441 6262
+444 35530
+446 8859
+447 72652
+448 5906
+451 8877
+454 12486
+462 14915
+485 375
+487 2
+493 5890
+544 5890
+547 15792
+551 5643
+563 5646
+564 2823
+565 2945
+582 20715
+585 38
+586 23864
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-minimal.c
+fn=__rtld_malloc_init_real
+89 8
+99 2
+100 2
+102 1
+104 6
+105 5
+106 5
+107 4
+112 1
+113 1
+114 1
+115 1
+116 7
+fn=__rtld_malloc_init_stubs
+55 1
+56 2
+57 2
+58 2
+59 2
+60 1
+fn=lookup_malloc_symbol
+74 28
+76 4
+77 32
+81 28
+82 24
+84 4
+85 20
+fn=rtld_calloc
+171 34
+175 17
+178 34
+179 51
+fn=rtld_free
+188 10
+190 40
+fn=rtld_malloc
+128 54
+129 179
+134 5
+135 2
+136 2
+140 135
+143 303
+148 12
+149 12
+151 6
+152 21
+154 6
+156 9
+158 9
+161 45
+162 45
+164 99
+fn=strsep
+341 4
+344 12
+346 4
+347 8
+351 521
+356 336
+358 664
+362 4
+366 83
+369 3
+373 4
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-misc.c
+fn=_dl_higher_prime_number
+358 2
+395 2
+396 2
+398 21
+400 80
+401 37
+402 3
+416 2
+417 4
+fn=_dl_name_match_p
+340 744
+341 496
+342 144
+344 124
+346 488
+347 700
+350 120
+352 104
+353 620
+fn=_dl_sysdep_read_whole_file
+44 9
+47 3
+48 2
+50 7
+52 2
+55 2
+57 8
+68 3
+71 7
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-object.c
+fn=_dl_add_to_namespace_list
+31 36
+33 18
+35 52
+38 60
+40 5
+42 5
+45 2
+46 18
+47 12
+48 12
+50 12
+51 18
+fn=_dl_new_object
+59 90
+62 12
+64 2
+66 3
+67 6
+71 2
+77 1
+80 46
+95 12
+98 6
+99 18
+103 12
+104 42
+106 6
+119 33
+125 1
+127 42
+130 12
+131 17
+132 6
+136 6
+139 65
+141 16
+149 12
+150 6
+153 1
+155 36
+157 15
+160 14
+164 15
+168 25
+170 1
+176 1
+179 12
+189 24
+191 20
+195 15
+200 15
+208 5
+212 5
+245 99
+250 84
+251 168
+253 10
+256 5
+259 5
+263 54
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-open.c
+fn=_dl_find_dso_for_object
+212 6
+216 5
+217 19
+218 24
+219 2
+222 2
+226 7
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-reloc.c
+fn=_dl_protect_relro
+348 14
+349 42
+352 21
+356 14
+357 49
+363 14
+fn=_dl_relocate_object
+167 88
+168 16
+180 14
+181 21
+184 21
+186 21
+188 7
+189 21
+211 35
+212 14
+213 5
+215 14
+222 28
+266 21
+294 313
+297 42
+321 7
+324 14
+341 14
+342 14
+343 64
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-runtime.c
+fn=_dl_fixup
+45 224
+47 32
+48 64
+53 32
+54 96
+55 224
+57 96
+62 64
+66 64
+68 124
+70 96
+74 62
+75 124
+83 32
+84 96
+94 320
+98 160
+108 320
+123 128
+124 4
+132 96
+149 64
+158 96
+162 192
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-sort-maps.c
+fn=_dl_sort_maps
+187 4
+188 44
+189 42
+216 36
+221 8
+223 2
+224 14
+226 36
+228 56
+231 30
+249 4
+268 8
+281 12
+288 2
+312 26
+320 6
+324 16
+fn=_dl_sort_maps_init
+303 2
+304 4
+305 1
+306 3
+307 2
+fn=dfs_traversal
+142 98
+145 42
+148 42
+150 42
+152 176
+155 66
+161 49
+176 42
+177 14
+178 84
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-tunables.c
+fn=__GI___tunables_init
+69 365
+72 72
+75 6599
+79 144
+84 216
+280 4
+289 9
+297 144
+312 9288
+318 11520
+330 288
+364 8
+fn=__tunable_get_val
+412 28
+415 308
+419 84
+424 8
+425 4
+434 6
+435 3
+441 140
+443 28
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-tunables.h
+fn=__GI___tunables_init
+124 3312
+125 3558
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/dl-version.c
+fn=_dl_check_all_versions
+362 6
+364 2
+366 26
+368 70
+371 7
+fn=_dl_check_map_versions
+37 192
+38 54
+39 330
+57 64
+65 96
+71 96
+87 32
+88 64
+90 32
+95 864
+109 704
+111 32
+114 268
+121 960
+125 320
+143 60
+156 56
+157 7
+165 7
+171 21
+173 21
+175 14
+176 28
+178 14
+181 15
+185 25
+199 7
+201 36
+209 36
+210 5
+214 36
+218 343
+220 32
+222 84
+225 128
+228 96
+233 20
+237 48
+242 14
+251 25
+254 20
+257 400
+260 300
+264 95
+268 12
+273 6
+274 12
+275 12
+285 6
+288 18
+290 18
+293 15
+295 7
+297 36
+300 96
+302 96
+304 160
+305 96
+306 96
+307 96
+310 96
+315 20
+318 36
+323 7
+328 18
+331 20
+335 95
+337 200
+341 95
+342 475
+343 285
+344 95
+347 305
+351 95
+357 63
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/do-rel.h
+fn=_dl_relocate_object
+48 14
+49 28
+50 14
+52 8
+53 9
+60 28
+63 199
+65 244
+76 4
+77 4
+85 24
+86 12
+88 48
+100 36
+110 22
+113 5989
+114 3976
+120 36
+123 22
+126 12727
+128 21175
+129 16940
+130 12705
+131 16940
+133 12705
+135 260
+138 130
+142 4170
+145 8340
+146 2754
+158 30
+159 249
+160 234
+163 195
+164 195
+165 65
+166 65
+167 130
+175 27
+177 42
+178 12
+180 18
+188 6
+191 12
+205 2
+fn=_dl_start
+85 1
+86 1
+113 153
+114 100
+118 2
+126 21
+128 18
+129 12
+130 12
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/get-dynamic-info.h
+fn=_dl_map_object_from_fd
+42 5
+46 5
+48 420
+50 270
+63 145
+64 230
+65 20
+67 5
+68 25
+70 5
+71 20
+72 5
+73 20
+74 135
+81 10
+101 17
+102 20
+103 20
+104 20
+106 20
+111 20
+112 19
+113 20
+118 15
+123 10
+130 10
+131 15
+149 15
+154 4
+156 4
+158 4
+160 4
+161 2
+163 15
+165 15
+166 10
+175 15
+176 15
+180 10
+181 8
+183 10
+fn=_dl_start
+48 63
+50 40
+63 25
+64 34
+65 4
+67 2
+68 5
+70 3
+71 5
+72 1
+73 5
+74 20
+81 2
+101 4
+102 4
+103 4
+104 4
+106 4
+111 4
+112 4
+113 4
+118 3
+123 2
+130 3
+131 3
+139 5
+142 3
+146 2
+147 2
+fn=dl_main
+33 1
+42 2
+46 1
+48 81
+50 52
+63 17
+64 36
+65 4
+67 1
+68 5
+70 1
+71 5
+72 1
+73 4
+74 26
+81 3
+118 3
+123 2
+130 2
+131 3
+149 3
+163 3
+183 2
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/rtld.c
+fn=_dl_start
+71 8
+471 2
+472 2
+473 2
+474 2
+475 2
+484 1
+490 4
+492 2
+504 10
+545 1
+548 1
+559 2
+564 25
+566 1
+579 1
+594 9
+fn=dl_main
+71 16
+78 13
+79 2
+87 7
+192 1
+193 1
+194 1
+219 2
+220 2
+221 4
+291 1
+292 1
+293 1
+294 1
+295 1
+296 1
+297 1
+298 2
+866 1
+868 1
+877 1
+879 1
+884 1
+1193 14
+1198 1
+1201 1
+1207 2
+1211 2
+1212 2
+1217 2
+1223 1
+1225 4
+1226 4
+1493 8
+1495 2
+1496 1
+1497 2
+1498 3
+1502 3
+1503 2
+1524 1
+1525 1
+1527 2
+1529 1
+1532 33
+1533 74
+1537 3
+1538 1
+1542 3
+1543 1
+1551 2
+1552 2
+1554 1
+1561 3
+1573 1
+1579 2
+1587 4
+1588 11
+1589 4
+1590 1
+1593 4
+1594 4
+1595 2
+1596 6
+1597 2
+1624 2
+1628 2
+1629 2
+1630 1
+1641 5
+1644 2
+1646 2
+1648 2
+1661 3
+1662 6
+1664 3
+1667 1
+1669 1
+1670 1
+1672 2
+1673 2
+1677 2
+1679 2
+1687 3
+1694 2
+1697 2
+1713 4
+1719 9
+1727 4
+1729 1
+1734 2
+1737 4
+1738 4
+1739 2
+1740 1
+1741 1
+1742 1
+1747 2
+1748 5
+1765 2
+1766 2
+1768 2
+1770 1
+1771 3
+1776 5
+1777 5
+1779 2
+1780 2
+1785 2
+1794 2
+1798 2
+1799 2
+1823 2
+1831 3
+1834 2
+1838 3
+1843 2
+1844 1
+1845 1
+1849 3
+1854 3
+1856 1
+1858 2
+1862 5
+1867 2
+1883 5
+1959 4
+1963 19
+1964 2
+1967 3
+1968 1
+1969 2
+1970 2
+1975 3
+1985 8
+1991 24
+1992 24
+1995 4
+1996 3
+1997 1
+1999 19
+2000 28
+2010 2
+2012 2
+2013 2
+2015 2
+2017 3
+2019 3
+2020 1
+2021 2
+2033 2
+2034 2
+2035 3
+2038 2
+2046 4
+2047 4
+2048 5
+2058 2
+2059 2
+2060 4
+2062 2
+2067 3
+2297 3
+2353 1
+2357 2
+2361 2
+2364 2
+2372 1
+2423 3
+2426 3
+2428 3
+2429 6
+2435 1
+2436 25
+2438 21
+2443 14
+2445 16
+2447 1
+2448 1
+2451 7
+2453 21
+2454 48
+2458 18
+2459 6
+2467 2
+2472 4
+2474 1
+2481 4
+2484 2
+2493 3
+2495 4
+2507 2
+2513 1
+2514 5
+2522 3
+2529 1
+2533 3
+2538 4
+2539 1
+2540 1
+2541 1
+2545 1
+2550 8
+2683 2
+2685 1
+2691 8
+2693 16
+2695 3
+2697 218
+2698 40
+2700 6
+2706 20
+2718 3
+2727 2
+2734 6
+2736 2
+2737 1
+2782 3
+2783 5
+2785 2
+2786 2
+2787 1
+2846 9
+2853 3
+2885 2
+fn=do_preload
+817 6
+819 1
+823 1
+824 1
+825 1
+827 1
+829 6
+830 3
+838 3
+844 5
+fn=dso_name_valid_for_suid
+177 4
+178 3
+186 2
+187 5
+fn=handle_preload_list
+898 15
+899 1
+903 4
+906 4
+907 3
+909 4
+910 2
+916 1
+918 2
+920 4
+921 5
+924 9
+fn=init_tls
+743 3
+745 2
+749 3
+755 2
+758 1
+759 2
+764 1
+766 1
+770 2
+771 3
+772 17
+773 7
+774 21
+778 4
+780 6
+782 2
+785 2
+788 1
+795 2
+796 2
+800 1
+804 2
+807 8
+810 1
+813 5
+fn=map_doit
+650 3
+652 4
+653 6
+655 2
+fn=rtld_lock_default_lock_recursive
+850 131
+851 131
+852 131
+fn=rtld_lock_default_unlock_recursive
+856 131
+857 131
+858 131
+fn=version_check_doit
+683 3
+685 6
+689 2
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/elf/setup-vdso.h
+fn=dl_main
+24 2
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/io/../sysdeps/unix/sysv/linux/access.c
+fn=access
+25 1
+27 7
+31 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/io/../sysdeps/unix/sysv/linux/close_nocancel.c
+fn=__GI___close_nocancel
+25 6
+26 24
+27 6
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/io/../sysdeps/unix/sysv/linux/lseek64.c
+fn=lseek
+28 7
+36 28
+38 7
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/io/../sysdeps/unix/sysv/linux/open64_nocancel.c
+fn=__open_nocancel
+34 90
+37 315
+45 432
+47 45
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/io/../sysdeps/unix/sysv/linux/read_nocancel.c
+fn=__read_nocancel
+25 12
+26 48
+27 12
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/io/../sysdeps/unix/sysv/linux/wordsize-64/fxstat.c
+fn=_fxstat
+33 12
+34 12
+35 36
+39 6
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/io/../sysdeps/unix/sysv/linux/wordsize-64/xstat.c
+fn=_xstat
+33 60
+34 60
+35 288
+39 3
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/malloc/scratch_buffer_set_array_size.c
+fn=__libc_scratch_buffer_set_array_size
+30 25
+31 10
+34 10
+35 10
+45 10
+46 5
+63 20
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/misc/../sysdeps/unix/syscall-template.S
+fn=mprotect
+78 60
+79 12
+fn=munmap
+78 5
+79 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/misc/../sysdeps/unix/sysv/linux/mmap64.c
+fn=mmap
+41 208
+44 32
+47 74
+52 160
+54 112
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/posix/../sysdeps/unix/syscall-template.S
+fn=uname
+78 5
+79 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/setjmp/../sysdeps/x86_64/setjmp.S
+fn=__sigsetjmp
+30 13
+32 13
+41 13
+42 26
+43 13
+47 13
+48 13
+49 13
+50 13
+51 13
+53 26
+55 13
+56 13
+57 13
+59 26
+61 13
+69 13
+72 13
+73 13
+80 13
+81 13
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../include/rtld-malloc.h
+fn=strdup
+56 24
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../string/strcspn.c
+fn=strcspn
+32 4
+33 5
+39 6
+40 4
+41 4
+42 4
+44 1
+47 9
+48 6
+51 4
+52 4
+53 4
+54 4
+56 3
+61 13
+62 26
+63 13
+64 26
+65 13
+67 91
+69 1
+70 4
+71 3
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../sysdeps/x86_64/memcmp.S
+fn=bcmp
+23 1
+28 1
+29 1
+30 1
+31 1
+32 1
+33 1
+34 1
+35 1
+38 1
+39 1
+40 1
+41 1
+42 1
+43 1
+44 1
+45 1
+46 1
+48 1
+49 1
+58 1
+59 1
+68 1
+69 1
+70 1
+71 1
+72 1
+73 1
+74 1
+75 1
+76 1
+102 1
+103 1
+104 1
+105 1
+106 1
+107 1
+108 1
+109 1
+110 1
+111 1
+112 1
+113 1
+114 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../sysdeps/x86_64/multiarch/../strchr.S
+fn=index
+23 30
+24 30
+25 30
+26 30
+27 30
+28 30
+29 30
+30 30
+31 30
+32 30
+33 30
+34 30
+35 30
+36 30
+37 30
+38 30
+39 30
+40 30
+41 23
+45 23
+46 23
+47 23
+48 23
+50 23
+54 7
+55 7
+56 7
+57 7
+58 7
+59 7
+60 7
+61 7
+62 7
+63 7
+64 7
+65 7
+66 7
+67 7
+68 7
+69 7
+70 7
+71 7
+72 7
+73 7
+74 7
+75 7
+76 7
+77 7
+129 7
+133 7
+134 7
+135 7
+136 7
+138 7
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../sysdeps/x86_64/multiarch/memmove-vec-unaligned-erms.S
+fn=memcpy
+190 49
+191 49
+197 156
+198 156
+199 72
+200 72
+205 44
+206 44
+207 44
+208 44
+211 44
+358 84
+359 84
+360 25
+361 25
+362 16
+363 16
+364 14
+365 1
+366 1
+368 14
+389 59
+390 59
+391 59
+392 59
+393 59
+396 9
+397 9
+398 9
+399 9
+400 9
+403 2
+404 2
+405 2
+406 2
+407 2
+417 28
+418 28
+419 26
+420 26
+422 11
+423 11
+424 11
+425 11
+426 11
+427 11
+428 11
+429 11
+430 11
+431 11
+432 11
+433 11
+434 11
+435 11
+436 11
+437 11
+438 11
+441 15
+442 15
+443 15
+444 15
+445 15
+446 15
+447 15
+448 15
+449 15
+461 2
+462 2
+464 2
+467 2
+468 2
+469 2
+470 2
+471 2
+473 2
+474 2
+477 2
+478 2
+480 2
+482 2
+484 2
+486 4
+491 6
+492 6
+493 6
+494 6
+495 6
+496 6
+497 6
+498 6
+499 6
+500 6
+501 6
+502 6
+503 6
+505 2
+506 2
+507 2
+508 2
+510 2
+511 2
+fn=mempcpy
+177 107
+178 107
+179 107
+180 107
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../sysdeps/x86_64/multiarch/memset-vec-unaligned-erms.S
+fn=memset
+169 7
+170 35
+175 7
+176 7
+179 5
+180 5
+182 1
+183 1
+184 1
+338 4
+339 4
+351 4
+354 4
+355 4
+367 4
+368 4
+381 4
+382 4
+384 4
+387 4
+390 8
+393 99
+394 99
+395 99
+396 99
+397 99
+398 99
+399 99
+402 4
+403 4
+404 4
+405 4
+410 4
+447 2
+452 2
+453 2
+492 2
+493 2
+495 2
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../sysdeps/x86_64/multiarch/strlen-vec.S
+fn=strlen
+41 35
+85 35
+86 35
+87 35
+88 35
+89 35
+90 35
+91 35
+93 35
+95 35
+126 35
+127 35
+128 35
+129 35
+130 35
+131 13
+133 13
+137 22
+138 22
+139 22
+140 22
+141 22
+142 22
+143 22
+144 22
+145 22
+146 22
+147 22
+148 22
+153 174
+227 1
+228 1
+229 1
+230 1
+231 1
+232 1
+233 1
+234 1
+250 1
+252 1
+253 14
+255 1
+256 1
+257 1
+259 1
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/../sysdeps/x86_64/strcmp.S
+fn=strcmp
+109 3559
+142 3559
+143 3559
+145 3559
+146 3559
+167 3559
+168 3559
+169 2552
+170 2552
+171 2399
+172 2399
+173 2399
+174 2399
+191 2399
+192 2399
+193 2399
+194 2399
+195 2399
+196 2399
+197 2399
+202 83
+203 249
+212 1243
+213 1243
+214 1243
+215 1243
+216 1243
+217 1243
+218 1243
+219 1243
+220 467
+221 291
+222 291
+223 291
+225 467
+226 467
+227 467
+228 467
+229 467
+230 467
+240 776
+241 776
+242 776
+244 776
+250 776
+251 776
+252 776
+253 776
+254 776
+259 776
+261 761
+262 761
+263 1522
+271 785
+272 785
+275 785
+276 785
+277 785
+278 785
+279 785
+280 785
+286 33
+287 33
+288 33
+291 33
+292 33
+293 33
+294 33
+295 33
+296 33
+301 24
+302 24
+311 25
+312 25
+313 25
+314 25
+315 25
+317 25
+318 25
+319 25
+320 25
+321 25
+322 25
+323 25
+324 9
+327 9
+328 9
+329 9
+335 9
+336 9
+337 18
+341 9
+342 9
+345 9
+346 9
+347 9
+350 9
+351 9
+352 9
+358 9
+359 9
+360 9
+361 9
+362 9
+363 9
+441 3
+442 3
+443 3
+444 3
+445 3
+447 3
+448 3
+449 3
+450 3
+451 3
+452 3
+453 3
+454 3
+457 3
+458 3
+459 3
+465 3
+466 3
+467 6
+471 6
+472 6
+475 6
+476 6
+477 6
+480 6
+481 6
+482 6
+488 6
+489 6
+490 6
+491 6
+492 6
+493 6
+500 3
+501 3
+503 3
+504 3
+506 3
+507 3
+508 3
+511 3
+512 3
+513 3
+519 3
+520 3
+521 3
+522 3
+523 3
+524 3
+531 3
+532 3
+533 3
+565 9
+566 9
+567 9
+568 9
+569 9
+571 9
+572 9
+573 9
+574 9
+575 9
+576 9
+577 9
+578 9
+582 9
+583 9
+584 9
+590 9
+591 9
+592 18
+596 10
+597 10
+600 10
+601 10
+602 10
+605 10
+606 10
+607 10
+613 10
+614 10
+615 10
+616 10
+617 10
+618 10
+625 5
+626 5
+628 5
+629 5
+631 5
+632 5
+633 5
+636 5
+637 5
+638 5
+644 5
+645 5
+646 5
+647 5
+648 5
+649 5
+656 1
+657 1
+658 1
+690 1
+691 1
+692 1
+693 1
+694 1
+696 1
+697 1
+698 1
+699 1
+700 1
+701 1
+702 1
+815 8
+816 8
+817 8
+818 8
+819 8
+821 8
+822 8
+823 8
+824 8
+825 8
+826 8
+827 8
+828 7
+832 7
+833 7
+834 7
+840 7
+841 7
+842 14
+846 9
+847 9
+850 9
+851 9
+852 9
+855 9
+856 9
+857 9
+863 9
+864 9
+865 9
+866 9
+867 9
+868 9
+875 3
+876 3
+878 3
+879 3
+881 3
+882 3
+883 3
+886 3
+887 3
+888 3
+894 3
+895 3
+896 3
+897 3
+898 3
+899 3
+906 2
+907 2
+908 2
+940 8
+941 8
+942 8
+943 8
+944 8
+946 8
+947 8
+948 8
+949 8
+950 8
+951 8
+952 8
+953 6
+957 6
+958 6
+959 6
+965 6
+966 6
+967 12
+971 6
+972 6
+975 6
+976 6
+977 6
+980 6
+981 6
+982 6
+988 6
+989 6
+990 6
+991 6
+992 6
+993 6
+1000 2
+1001 2
+1003 2
+1004 2
+1006 2
+1007 2
+1008 2
+1011 2
+1012 2
+1013 2
+1019 2
+1020 2
+1021 2
+1022 2
+1023 2
+1024 2
+1065 11
+1066 11
+1067 11
+1068 11
+1069 11
+1071 11
+1072 11
+1073 11
+1074 11
+1075 11
+1076 11
+1077 11
+1078 9
+1082 9
+1083 9
+1084 9
+1090 9
+1091 9
+1092 18
+1096 9
+1097 9
+1100 9
+1101 9
+1102 9
+1105 9
+1106 9
+1107 9
+1113 9
+1114 9
+1115 9
+1116 9
+1117 9
+1118 9
+1125 1
+1126 1
+1128 1
+1129 1
+1131 1
+1132 1
+1133 1
+1136 1
+1137 1
+1138 1
+1144 1
+1145 1
+1146 1
+1147 1
+1148 1
+1149 1
+1190 17
+1191 17
+1192 17
+1193 17
+1194 17
+1196 17
+1197 17
+1198 17
+1199 17
+1200 17
+1201 17
+1202 17
+1203 11
+1207 11
+1208 11
+1209 11
+1215 11
+1216 11
+1217 22
+1221 13
+1222 13
+1225 13
+1226 13
+1227 13
+1230 13
+1231 13
+1232 13
+1238 13
+1239 13
+1240 13
+1241 13
+1242 13
+1243 13
+1250 4
+1251 4
+1253 4
+1254 4
+1256 4
+1257 4
+1258 4
+1261 4
+1262 4
+1263 4
+1269 4
+1270 4
+1271 4
+1272 4
+1273 4
+1274 4
+1281 2
+1282 2
+1283 2
+1315 38
+1316 38
+1317 38
+1318 38
+1319 38
+1321 38
+1322 38
+1323 38
+1324 38
+1325 38
+1326 38
+1327 38
+1328 17
+1332 17
+1333 17
+1334 17
+1340 17
+1341 17
+1342 34
+1346 20
+1347 20
+1350 20
+1351 20
+1352 20
+1355 20
+1356 20
+1357 20
+1363 20
+1364 20
+1365 20
+1366 20
+1367 20
+1368 20
+1375 6
+1376 6
+1378 6
+1379 6
+1381 6
+1382 6
+1383 6
+1386 6
+1387 6
+1388 6
+1394 6
+1395 6
+1396 6
+1397 6
+1398 6
+1399 6
+1406 3
+1407 3
+1408 3
+1440 25
+1441 25
+1442 25
+1443 25
+1444 25
+1446 25
+1447 25
+1448 25
+1449 25
+1450 25
+1451 25
+1452 25
+1453 13
+1457 13
+1458 13
+1459 13
+1465 13
+1466 13
+1467 26
+1471 19
+1472 19
+1475 19
+1476 19
+1477 19
+1480 19
+1481 19
+1482 19
+1488 19
+1489 19
+1490 19
+1491 19
+1492 19
+1493 19
+1500 9
+1501 9
+1503 9
+1504 9
+1506 9
+1507 9
+1508 9
+1511 9
+1512 9
+1513 9
+1519 9
+1520 9
+1521 9
+1522 9
+1523 9
+1524 9
+1531 6
+1532 6
+1533 6
+1565 32
+1566 32
+1567 32
+1568 32
+1569 32
+1571 32
+1572 32
+1573 32
+1574 32
+1575 32
+1576 32
+1577 32
+1578 19
+1582 19
+1583 19
+1584 19
+1590 19
+1591 19
+1592 38
+1596 24
+1597 24
+1600 24
+1601 24
+1602 24
+1605 24
+1606 24
+1607 24
+1613 24
+1614 24
+1615 24
+1616 24
+1617 24
+1618 24
+1625 11
+1626 11
+1628 11
+1629 11
+1631 11
+1632 11
+1633 11
+1636 11
+1637 11
+1638 11
+1644 11
+1645 11
+1646 11
+1647 11
+1648 11
+1649 11
+1656 5
+1657 5
+1658 5
+1690 17
+1691 17
+1692 17
+1693 17
+1694 17
+1696 17
+1697 17
+1698 17
+1699 17
+1700 17
+1701 17
+1702 17
+1703 14
+1707 14
+1708 14
+1709 14
+1715 14
+1716 14
+1717 28
+1721 14
+1722 14
+1725 14
+1726 14
+1727 14
+1730 14
+1731 14
+1732 14
+1738 14
+1739 14
+1740 14
+1741 14
+1742 14
+1743 14
+1815 69
+1816 69
+1817 69
+1818 69
+1819 69
+1821 69
+1822 69
+1823 69
+1824 69
+1825 69
+1826 69
+1827 69
+1828 39
+1832 39
+1833 39
+1834 39
+1840 39
+1841 39
+1842 78
+1846 46
+1847 46
+1850 46
+1851 46
+1852 46
+1855 46
+1856 46
+1857 46
+1863 46
+1864 46
+1865 46
+1866 46
+1867 46
+1868 46
+1875 13
+1876 13
+1878 13
+1879 13
+1881 13
+1882 13
+1883 13
+1886 13
+1887 13
+1888 13
+1894 13
+1895 13
+1896 13
+1897 13
+1898 13
+1899 13
+1906 7
+1907 7
+1908 7
+1940 33
+1941 33
+1942 33
+1943 33
+1944 33
+1946 33
+1947 33
+1948 33
+1949 33
+1950 33
+1951 33
+1952 33
+1953 18
+1957 18
+1958 18
+1959 18
+1965 18
+1966 18
+1967 36
+1971 23
+1972 23
+1975 23
+1976 23
+1977 23
+1980 23
+1981 23
+1982 23
+1988 23
+1989 23
+1990 23
+1991 23
+1992 23
+1993 23
+2000 9
+2001 9
+2003 9
+2004 9
+2006 9
+2007 9
+2008 9
+2011 9
+2012 9
+2013 9
+2019 9
+2020 9
+2021 9
+2022 9
+2023 9
+2024 9
+2031 5
+2032 5
+2033 5
+2065 171
+2066 171
+2067 171
+2068 171
+2069 171
+2071 171
+2072 171
+2073 171
+2074 171
+2075 171
+2076 171
+2077 171
+2079 155
+2083 155
+2084 155
+2085 155
+2091 155
+2092 155
+2094 310
+2098 160
+2099 160
+2102 160
+2103 160
+2104 160
+2107 160
+2108 160
+2109 160
+2115 160
+2116 160
+2117 160
+2118 160
+2119 160
+2120 160
+2127 9
+2128 9
+2130 9
+2131 9
+2133 9
+2134 9
+2135 9
+2138 9
+2139 9
+2140 9
+2146 9
+2147 9
+2148 9
+2149 9
+2150 9
+2151 9
+2158 5
+2159 5
+2160 5
+2194 1090
+2196 1243
+2197 1243
+2198 1243
+2199 1243
+2200 582
+2205 3559
+2211 3559
+2212 3559
+2220 3559
+2221 3559
+fl=/usr/src/debug/glibc-2.28-251.el8_10.16.x86_64/string/strdup.c
+fn=strdup
+40 40
+41 16
+44 16
+47 40
+48 40
+fl=???
+fn=(below main)
+0 70
+fn=???
+0 110890592
+fn=_Exit
+0 9
+fn=_IO_cleanup
+0 147
+fn=_IO_default_finish
+0 80
+fn=_IO_default_setbuf
+0 54
+fn=_IO_default_xsputn
+0 93
+fn=_IO_do_write@@GLIBC_2.2.5
+0 17
+fn=_IO_doallocbuf
+0 26
+fn=_IO_file_close
+0 15
+fn=_IO_file_close_it@@GLIBC_2.2.5
+0 275
+fn=_IO_file_doallocate
+0 64
+fn=_IO_file_finish@@GLIBC_2.2.5
+0 65
+fn=_IO_file_fopen@@GLIBC_2.2.5
+0 315
+fn=_IO_file_open
+0 165
+fn=_IO_file_overflow@@GLIBC_2.2.5
+0 126
+fn=_IO_file_setbuf@@GLIBC_2.2.5
+0 16
+fn=_IO_file_stat
+0 5
+fn=_IO_file_sync@@GLIBC_2.2.5
+0 144
+fn=_IO_file_write@@GLIBC_2.2.5
+0 37
+fn=_IO_file_xsputn@@GLIBC_2.2.5
+0 66
+fn=_IO_flush_all_lockp
+0 115
+fn=_IO_link_in
+0 495
+fn=_IO_new_file_init_internal
+0 70
+fn=_IO_no_init
+0 193
+fn=_IO_old_init
+0 166
+fn=_IO_setb
+0 135
+fn=_IO_str_init_static_internal
+0 36
+fn=_IO_un_link
+0 40
+fn=_IO_unsave_markers
+0 30
+fn=__GI__IO_un_link.part.1
+0 435
+fn=__GI_strstr
+0 170
+fn=____strtol_l_internal
+0 522296168
+fn=__acos_finite
+0 8
+fn=__asin_finite
+0 8
+fn=__atan2_finite
+0 9
+fn=__call_tls_dtors
+0 12
+fn=__close_nocancel
+0 30
+fn=__cpu_indicator_init
+0 61
+fn=__ctype_init
+0 17
+fn=__cxa_atexit
+0 33
+fn=__cxa_finalize
+0 488
+fn=__cxa_guard_acquire
+0 31
+fn=__cxa_guard_release
+0 15
+fn=__cxxabiv1::__si_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+0 4680
+fn=__cxxabiv1::__vmi_class_type_info::__do_dyncast(long, __cxxabiv1::__class_type_info::__sub_kind, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info const*, void const*, __cxxabiv1::__class_type_info::__dyncast_result&) const
+0 277866286
+fn=__default_morecore
+0 1040
+fn=__dynamic_cast
+0 228106340
+fn=__errno_location
+0 16588824
+fn=__exp_finite
+0 9
+fn=__fopen_internal
+0 215
+fn=__gconv_btwoc_ascii
+0 768
+fn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::overflow(int)
+0 7
+fn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::sync()
+0 12
+fn=__gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::xsputn(char const*, long)
+0 6
+fn=__gnu_cxx::stdio_sync_filebuf<wchar_t, std::char_traits<wchar_t> >::sync()
+0 9
+fn=__init_misc
+0 25
+fn=__internal_atexit
+0 418
+fn=__libc_alloca_cutoff
+0 11
+fn=__libc_csu_init
+0 69
+fn=__libc_early_init
+0 2
+fn=__log_finite
+0 9
+fn=__memchr_avx2
+0 196181580
+fn=__memcmp_avx2_movbe
+0 1152
+fn=__memcpy_avx_unaligned_erms
+0 80526408
+fn=__mpn_extract_double
+0 20
+fn=__mpn_lshift
+0 16
+fn=__mpn_mul_1
+0 147
+fn=__new_exitfn
+0 400
+fn=__overflow
+0 18
+fn=__pow_finite
+0 8
+fn=__printf_fp
+0 7
+fn=__printf_fp_l
+0 583
+fn=__run_exit_handlers
+0 415
+fn=__sigjmp_save
+0 9
+fn=__sigsetjmp
+0 22
+fn=__strchr_avx2
+0 105
+fn=__strchrnul_avx2
+0 38
+fn=__strcmp_avx2
+0 157595804
+fn=__strlen_avx2
+0 1036
+fn=__strrchr_avx2
+0 22
+fn=__unregister_atfork
+0 64
+fn=__x86_cacheinfo
+0 110
+fn=_dl_addr
+0 73132
+fn=_dl_mcount_wrapper_check
+0 640
+fn=_dl_vdso_vsym
+0 80
+fn=_fxstat
+0 11
+fn=_init
+0 108
+fn=_int_free
+0 273928
+fn=_int_malloc
+0 402423
+fn=_setjmp
+0 3
+fn=bcmp
+0 50
+fn=bool std::has_facet<std::codecvt<char, char, __mbstate_t> >(std::locale const&)
+0 110
+fn=bool std::has_facet<std::ctype<char> >(std::locale const&)
+0 528
+fn=bool std::has_facet<std::ctype<wchar_t> >(std::locale const&)
+0 88
+fn=bool std::has_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 528
+fn=bool std::has_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 88
+fn=bool std::has_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 528
+fn=bool std::has_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 88
+fn=brk
+0 2958
+fn=btowc
+0 9472
+fn=ceil
+0 7
+fn=ceilf
+0 7
+fn=check_stdfiles_vtables
+0 12
+fn=cos
+0 9
+fn=cosf
+0 9
+fn=exit
+0 8
+fn=exp2f
+0 9
+fn=expf
+0 9
+fn=fclose@@GLIBC_2.2.5
+0 375
+fn=fflush
+0 357
+fn=fileno
+0 11977
+fn=floor
+0 7
+fn=floorf
+0 7
+fn=fopen@@GLIBC_2.2.5
+0 15
+fn=free
+0 51021
+fn=fwrite
+0 74
+fn=get_common_cache_info
+0 233
+fn=getrandom
+0 10
+fn=gettimeofday
+0 134
+fn=hack_digit
+0 175
+fn=handle_intel.constprop.1
+0 177
+fn=index
+0 44
+fn=intel_check_word.isra.0
+0 1324
+fn=log2f
+0 9
+fn=logf
+0 9
+fn=long std::__copy_streambufs_eof<char, std::char_traits<char> >(std::basic_streambuf<char, std::char_traits<char> >*, std::basic_streambuf<char, std::char_traits<char> >*, bool&)
+0 30766
+fn=malloc
+0 106421
+fn=malloc_hook_ini
+0 12
+fn=malloc_init_state
+0 647
+fn=memchr
+0 50
+fn=memcpy@@GLIBC_2.14
+0 96
+fn=memmove
+0 48
+fn=mempcpy
+0 24
+fn=memrchr
+0 24
+fn=memset
+0 78
+fn=mmap
+0 2880
+fn=munmap
+0 54
+fn=munmap_chunk
+0 297
+fn=new_do_write
+0 55
+fn=newlocale
+0 52
+fn=open
+0 145
+fn=operator delete(void*)
+0 4418
+fn=operator delete[](void*)
+0 10
+fn=operator new(unsigned long)
+0 26508
+fn=operator new[](unsigned long)
+0 10
+fn=powf
+0 9
+fn=ptmalloc_init.part.0
+0 91
+fn=putc
+0 12
+fn=rawmemchr
+0 25
+fn=read
+0 17110
+fn=rindex
+0 24
+fn=rint
+0 7
+fn=rintf
+0 7
+fn=sbrk
+0 4583
+fn=sin
+0 9
+fn=sincosf
+0 9
+fn=sinf
+0 9
+fn=std::_V2::error_category::~error_category()
+0 6
+fn=std::__basic_file<char>::__basic_file(pthread_mutex_t*)
+0 20
+fn=std::__basic_file<char>::close()
+0 125
+fn=std::__basic_file<char>::fd()
+0 5133
+fn=std::__basic_file<char>::is_open() const
+0 148
+fn=std::__basic_file<char>::open(char const*, std::_Ios_Openmode, int)
+0 135
+fn=std::__basic_file<char>::xsgetn(char*, long)
+0 44486
+fn=std::__basic_file<char>::~__basic_file()
+0 10
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long)
+0 120271333
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long)
+0 440
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long)
+0 130
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_replace(unsigned long, unsigned long, char const*, unsigned long)
+0 1916
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::compare(char const*) const
+0 105
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::find_first_not_of(char const*, unsigned long, unsigned long) const
+0 179520234
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long)
+0 1350
+fn=std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::swap(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+0 660
+fn=std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_pbump(char*, char*, long)
+0 320
+fn=std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::_M_sync(char*, unsigned long, unsigned long)
+0 1052
+fn=std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int)
+0 3000
+fn=std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::underflow()
+0 28
+fn=std::__cxx11::messages<char>::messages(unsigned long)
+0 20
+fn=std::__cxx11::messages<wchar_t>::messages(unsigned long)
+0 20
+fn=std::__cxx11::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 123
+fn=std::__cxx11::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 123
+fn=std::__cxx11::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 131
+fn=std::__cxx11::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 131
+fn=std::__cxx11::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+0 420
+fn=std::__cxx11::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+0 350
+fn=std::__num_base::_S_format_float(std::ios_base const&, char*, char)
+0 33
+fn=std::__timepunct<char>::_M_initialize_timepunct(__locale_struct*)
+0 106
+fn=std::__timepunct<char>::__timepunct(std::__timepunct_cache<char>*, unsigned long)
+0 23
+fn=std::__timepunct<wchar_t>::_M_initialize_timepunct(__locale_struct*)
+0 104
+fn=std::__timepunct<wchar_t>::__timepunct(std::__timepunct_cache<wchar_t>*, unsigned long)
+0 23
+fn=std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer()
+0 65
+fn=std::basic_filebuf<char, std::char_traits<char> >::_M_destroy_internal_buffer()
+0 100
+fn=std::basic_filebuf<char, std::char_traits<char> >::_M_terminate_output()
+0 150
+fn=std::basic_filebuf<char, std::char_traits<char> >::basic_filebuf()
+0 290
+fn=std::basic_filebuf<char, std::char_traits<char> >::close()
+0 308
+fn=std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode)
+0 270
+fn=std::basic_filebuf<char, std::char_traits<char> >::underflow()
+0 111207
+fn=std::basic_ios<char, std::char_traits<char> >::_M_cache_locale(std::locale const&)
+0 744
+fn=std::basic_ios<char, std::char_traits<char> >::clear(std::_Ios_Iostate)
+0 63
+fn=std::basic_ios<char, std::char_traits<char> >::init(std::basic_streambuf<char, std::char_traits<char> >*)
+0 552
+fn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::_M_cache_locale(std::locale const&)
+0 124
+fn=std::basic_ios<wchar_t, std::char_traits<wchar_t> >::init(std::basic_streambuf<wchar_t, std::char_traits<wchar_t> >*)
+0 92
+fn=std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&)
+0 506752014
+fn=std::basic_ostream<wchar_t, std::char_traits<wchar_t> >::flush()
+0 45
+fn=std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long)
+0 60614
+fn=std::codecvt<char, char, __mbstate_t> const& std::use_facet<std::codecvt<char, char, __mbstate_t> >(std::locale const&)
+0 100
+fn=std::codecvt<char, char, __mbstate_t>::codecvt(unsigned long)
+0 18
+fn=std::codecvt<char, char, __mbstate_t>::do_always_noconv() const
+0 5133
+fn=std::codecvt<wchar_t, char, __mbstate_t>::codecvt(unsigned long)
+0 18
+fn=std::ctype<char> const& std::use_facet<std::ctype<char> >(std::locale const&)
+0 82944680
+fn=std::ctype<char>::_M_widen_init() const
+0 1087
+fn=std::ctype<char>::ctype(unsigned short const*, bool, unsigned long)
+0 116
+fn=std::ctype<wchar_t> const& std::use_facet<std::ctype<wchar_t> >(std::locale const&)
+0 80
+fn=std::ctype<wchar_t>::_M_convert_to_wmask(unsigned short) const
+0 149
+fn=std::ctype<wchar_t>::_M_initialize_ctype()
+0 2733
+fn=std::ctype<wchar_t>::ctype(unsigned long)
+0 20
+fn=std::error_category::error_category()
+0 10
+fn=std::error_category::~error_category()
+0 4
+fn=std::future_category()
+0 18
+fn=std::ios_base::Init::Init()
+0 365
+fn=std::ios_base::Init::~Init()
+0 64
+fn=std::ios_base::_M_call_callbacks(std::ios_base::event)
+0 99
+fn=std::ios_base::_M_dispose_callbacks()
+0 117
+fn=std::ios_base::_M_init()
+0 728
+fn=std::ios_base::ios_base()
+0 1003
+fn=std::ios_base::~ios_base()
+0 153
+fn=std::istream::peek()
+0 60
+fn=std::istream::sentry::sentry(std::istream&, bool)
+0 257230980
+fn=std::locale::_Impl::_Impl(unsigned long)
+0 982
+fn=std::locale::_Impl::_M_install_facet(std::locale::id const*, std::locale::facet const*)
+0 10950
+fn=std::locale::facet::_S_create_c_locale(__locale_struct*&, char const*, __locale_struct*)
+0 10
+fn=std::locale::facet::_S_get_c_locale()
+0 152
+fn=std::locale::facet::_S_get_c_name()
+0 21
+fn=std::locale::id::_M_id() const
+0 24885108
+fn=std::locale::locale()
+0 1440
+fn=std::locale::locale(std::locale const&)
+0 29030463
+fn=std::locale::locale(std::locale::_Impl*)
+0 3
+fn=std::locale::operator=(std::locale const&)
+0 616
+fn=std::locale::~locale()
+0 49767060
+fn=std::messages<char>::messages(unsigned long)
+0 20
+fn=std::messages<wchar_t>::messages(unsigned long)
+0 20
+fn=std::moneypunct<char, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 123
+fn=std::moneypunct<char, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 123
+fn=std::moneypunct<wchar_t, false>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 131
+fn=std::moneypunct<wchar_t, true>::_M_initialize_moneypunct(__locale_struct*, char const*)
+0 131
+fn=std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_get<char, std::istreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 480
+fn=std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_get<wchar_t, std::istreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 80
+fn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > const& std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > > >(std::locale const&)
+0 480
+fn=std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::do_put(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, double) const
+0 4
+fn=std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > const& std::use_facet<std::num_put<wchar_t, std::ostreambuf_iterator<wchar_t, std::char_traits<wchar_t> > > >(std::locale const&)
+0 80
+fn=std::numpunct<char>::_M_initialize_numpunct(__locale_struct*)
+0 420
+fn=std::numpunct<wchar_t>::_M_initialize_numpunct(__locale_struct*)
+0 350
+fn=std::ostream& std::ostream::_M_insert<double>(double)
+0 69
+fn=std::ostream::flush()
+0 60
+fn=std::ostream::operator<<(std::basic_streambuf<char, std::char_traits<char> >*)
+0 76
+fn=std::ostream::put(char)
+0 38
+fn=std::ostream::sentry::sentry(std::ostream&)
+0 92
+fn=std::ostream::sentry::~sentry()
+0 28
+fn=std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_float<double>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, char, double) const
+0 132
+fn=stpcpy
+0 20
+fn=stpncpy
+0 20
+fn=strcasecmp
+0 20
+fn=strcasecmp_l
+0 20
+fn=strcat
+0 20
+fn=strchrnul
+0 24
+fn=strcmp
+0 34
+fn=strcpy
+0 20
+fn=strcspn
+0 7
+fn=strlen
+0 96
+fn=strncasecmp
+0 20
+fn=strncasecmp_l
+0 20
+fn=strncmp
+0 17
+fn=strncpy
+0 20
+fn=strnlen
+0 48
+fn=strpbrk
+0 7
+fn=strspn
+0 7
+fn=strtol
+0 20736030
+fn=sysmalloc
+0 18884
+fn=systrim.isra.1.constprop.11
+0 53
+fn=tcache_init.part.7
+0 115
+fn=time
+0 67
+fn=trunc
+0 7
+fn=truncf
+0 7
+fn=unlink_chunk.isra.2
+0 54334
+fn=uselocale
+0 88
+fn=vfprintf
+0 282
+fn=vsnprintf
+0 51
+fn=wcschr
+0 48
+fn=wcscmp
+0 48
+fn=wcslen
+0 44
+fn=wcsnlen
+0 22
+fn=wctob
+0 3328
+fn=wctype_l
+0 1036
+fn=wmemchr
+0 75
+fn=wmemcmp
+0 25
+fn=wmemset
+0 57
+fn=write
+0 10
+summary: 3384131272
