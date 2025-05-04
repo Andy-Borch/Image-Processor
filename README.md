@@ -95,7 +95,14 @@ All methods are designed to gracefully exit and provide informative output if in
 - Optimize correlation calculations from Assignment 5 using Valgrind profiler
   - Reduced number of operations performed by reading in file all at once, which reduced the number of calls the standard inpput file stream.
 - **Implemented Methods:**
-  - `GrayscaleImage.loadImageFast(filename)` 
+  - `GrayscaleImage.loadImageFast(filename)`
+- **Modified Methods**
+  - `GrayscaleImage.correlation(image1, image2)`
+  - `GrayscaleImage.get(averageIntensity(image)`
+  - Passed in references to images into these methos instead of the image objects.
+- **Total Improvment:**
+  - With a 1920x1080 image, these methods reduces the instruction count from 3.48 billion to 3.38 billion instructions"
+ 
 
 ---
 
