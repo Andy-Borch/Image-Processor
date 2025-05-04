@@ -101,7 +101,7 @@ All methods are designed to gracefully exit and provide informative output if in
   - `GrayscaleImage.get(averageIntensity(image)`
   - Passed in references to images into these methos instead of the image objects.
 - **Total Improvment:**
-  - With a 1920x1080 image, these methods reduces the instruction count from 3.48 billion to 3.38 billion instructions"
+  - With a 1920x1080 image, these methods reduce the instruction count from 3.48 billion to 3.38 billion instructions"
  
 
 ---
