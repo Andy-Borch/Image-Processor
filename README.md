@@ -93,7 +93,9 @@ All methods are designed to gracefully exit and provide informative output if in
 ### Assignment 6: Optimization with Valgrind
 
 - Optimize correlation calculations from Assignment 5 using Valgrind profiler
-  - Reduced number of operations performed
+  - Reduced number of operations performed by reading in file all at once, which reduced the number of calls the standard inpput file stream.
+- **Implemented Methods:**
+  - `GrayscaleImage.loadImageFast(filename)` 
 
 ---
 
