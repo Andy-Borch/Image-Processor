@@ -113,19 +113,14 @@ All methods are designed to gracefully exit and provide informative output if in
 ## Future Improvements
 
 * Improve polymorphism and inheritance structure.
-
+* Optimize further based on HW7
+   * Add multithreading    
 * Parallelize operations such as regularization and conversion using OpenMP and/or CUDA.
-
     * Add CUDA compile and run commands to makefile
-
 * Refactor `Image.run()` method to dynamically determine actions based on user input.
-
     * Prompt user to submit correct number of files after choosing the operation to be performed
-
 * Add a link to this README pointing to the generated Doxygen documentation.
-
 * Improve error detection and messages
-
 * Add unit tests
 ---
 ## Compiling and Running
