@@ -2,6 +2,7 @@
 #include "ColorImage.h"
 #include "GrayscaleImage.h"
 #include "BinaryImage.h"
+#include <omp.h>
 
 #include <sstream>
 
@@ -79,25 +80,27 @@ std::string Image::getInputFormat(std::string& filename){
 }
 
 int Image::computeRowChecksums(){
-    int sum;
+    rowChecksumVec.resize(rows);
+    #pragma omp parallel for
     for(int r = 0; r < rows; r++){
-        sum = 0;
+        int sum = 0;
         for(int c = 0; c < cols; c++){
             sum += imageData.at(r).at(c).pixelSum();
         }
-        rowChecksumVec.push_back(sum);
+        rowChecksumVec[r] = sum;
     }
     return 0;
 }
 
 int Image::computeColChecksums(){
-    int sum;
+    colChecksumVec.resize(cols);
+    #pragma omp parallel for
     for(int c = 0; c < cols; c++){
-        sum = 0;
+        int sum = 0;
         for(int r = 0; r < rows; r++){
             sum += imageData.at(r).at(c).pixelSum();
         }
-        colChecksumVec.push_back(sum);
+        colChecksumVec[c] = sum;
     }
     return 0;
 }

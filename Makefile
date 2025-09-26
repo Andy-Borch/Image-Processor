@@ -15,7 +15,7 @@ RM=rm
 #Used to create a standard tar file naming convention
 
 #Required Content Do not Modify below this line
-CXXFLAGS=-Wall -Werror -Wfatal-errors -O2
+CXXFLAGS=-Wall -Werror -Wfatal-errors -O2 -fopenmp
 
 %.o: %.cpp
 		g++ -c -g $(CXXFLAGS) $<

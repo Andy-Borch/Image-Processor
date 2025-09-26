@@ -1,4 +1,5 @@
 #include "ColorImage.h"
+#include <omp.h>
 
 ColorImage::ColorImage(): Image(256, -1){}
 
@@ -123,6 +124,7 @@ int ColorImage::regularize(){
     int regularizedRed = 0;
     int regularizedGreen = 0;
     int regularizedBlue = 0;
+    #pragma omp parallel for private(regularizedRed,regularizedGreen,regularizedBlue) collapse(2)
     for(int r = 0; r < rows; r++){
         for(int c = 0; c < cols; c++){
             regularizedRed = std::round((imageData.at(r).at(c).getRedValue() - actualMinVal) * (255.0 / (actualMaxVal - actualMinVal)));
@@ -138,6 +140,7 @@ int ColorImage::regularize(){
 }
 
 int ColorImage::convertToBinary(){
+    #pragma omp parallel for collapse(2)
     for(int r = 0; r < rows; r++){
         for(int c = 0; c < cols; c++){
             if (imageData.at(r).at(c).pixelSum() > 382.5){
@@ -154,6 +157,7 @@ int ColorImage::convertToBinary(){
 }
 
 int ColorImage::convertToGrayscale(){
+    #pragma omp parallel for collapse(2)
     for(int r = 0; r < rows; r++){
         for(int c = 0; c < cols; c++){
             int sum = imageData.at(r).at(c).pixelSum();

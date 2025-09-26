@@ -1,0 +1,17 @@
+# Build artifacts
+*.o
+ImageProcessor
+*.gch
+*.gcov
+a.out
+
+# Archive files
+*.tar
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

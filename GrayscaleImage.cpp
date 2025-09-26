@@ -1,4 +1,5 @@
 #include "GrayscaleImage.h"
+#include <omp.h>
 
 GrayscaleImage::GrayscaleImage(): Image(256, -1){}
 
@@ -97,6 +98,7 @@ int GrayscaleImage::regularize(){
     }
     
     int regularizedValue = 0;
+    #pragma omp parallel for private(regularizedValue) collapse(2)
     for(int r = 0; r < rows; r++){
         for(int c = 0; c < cols; c++){
             regularizedValue = std::round((imageData.at(r).at(c).getSingleValue() - actualMinVal) * (255.0 / (actualMaxVal - actualMinVal)));
@@ -107,6 +109,7 @@ int GrayscaleImage::regularize(){
 }
 
 int GrayscaleImage::convertToBinary(){
+    #pragma omp parallel for collapse(2)
     for(int r = 0; r < rows; r++){
         for(int c = 0; c < cols; c++){
             if (imageData.at(r).at(c).getSingleValue() > 127.5){
@@ -123,6 +126,7 @@ int GrayscaleImage::convertToBinary(){
 }
 
 int GrayscaleImage::convertToRGB(){
+    #pragma omp parallel for collapse(2)
     for(int r = 0; r < rows; r++){
         for(int c = 0; c < cols; c++){
             int intensity = imageData.at(r).at(c).getSingleValue();
@@ -157,6 +161,7 @@ int GrayscaleImage::correlation(const GrayscaleImage& image1, const GrayscaleIma
     double image1SquaredPixelSum = 0.0;
     double image2SquaredPixelSum = 0.0;
 
+    #pragma omp parallel for reduction(+:numerator,image1SquaredPixelSum,image2SquaredPixelSum) collapse(2)
     for(int r = 0; r < rows; r++){
         for(int c = 0; c < cols; c++){
             double image1Value = image1.imageData.at(r).at(c).getSingleValue();
@@ -189,6 +194,8 @@ int GrayscaleImage::correlation(const GrayscaleImage& image1, const GrayscaleIma
 //massing in reference here reduced it from 3.433 billion to 3.398 billion
 double GrayscaleImage::getAverageIntensity(const GrayscaleImage& i){
     double intensitySum = 0.0;
+    
+    #pragma omp parallel for reduction(+:intensitySum) collapse(2)
     for(int r = 0; r < i.rows; r++){
         for(int c = 0; c < i.cols; c++){
             intensitySum += i.imageData.at(r).at(c).getSingleValue();
