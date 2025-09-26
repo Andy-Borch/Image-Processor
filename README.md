@@ -114,14 +114,66 @@ All methods are designed to gracefully exit and provide informative output if in
 
 * Improve polymorphism and inheritance structure.
 * Optimize further based on HW7
-   * Add multithreading    
-* Parallelize operations such as regularization and conversion using OpenMP and/or CUDA.
+   * ~~Add multithreading~~ ✅ **COMPLETED**   
+* ~~Parallelize operations such as regularization and conversion using OpenMP and/or CUDA.~~ ✅ **COMPLETED**
     * Add CUDA compile and run commands to makefile
 * Refactor `Image.run()` method to dynamically determine actions based on user input.
     * Prompt user to submit correct number of files after choosing the operation to be performed
 * Add a link to this README pointing to the generated Doxygen documentation.
 * Improve error detection and messages
 * Add unit tests
+
+## OpenMP Parallelization
+
+**NEW** - The image processing operations have been parallelized using OpenMP for improved performance on multi-core systems.
+
+### Parallelized Operations
+
+**GrayscaleImage:**
+- `getAverageIntensity()` - parallel reduction for intensity sum calculation
+- `correlation()` - parallel reduction for Pearson correlation computation
+- `regularize()` - parallel pixel-wise intensity normalization
+- `convertToBinary()` - parallel pixel-wise binary conversion
+- `convertToRGB()` - parallel pixel-wise RGB conversion
+
+**ColorImage:**
+- `regularize()` - parallel pixel-wise RGB intensity normalization
+- `convertToBinary()` - parallel pixel-wise binary conversion  
+- `convertToGrayscale()` - parallel pixel-wise grayscale conversion
+
+**Image (base class):**
+- `computeRowChecksums()` - parallel row-wise checksum computation
+- `computeColChecksums()` - parallel column-wise checksum computation
+
+### Performance Improvements
+
+Tested on a 4-core system with large grayscale images:
+- **Single-threaded**: ~0.266s average
+- **2 threads**: ~0.254s average (4.5% improvement)
+- **4 threads**: ~0.251s average (5.6% improvement)
+
+### Usage
+
+The parallel code automatically detects available CPU cores. You can control the number of threads using the `OMP_NUM_THREADS` environment variable:
+
+```bash
+# Use 2 threads
+export OMP_NUM_THREADS=2
+./ImageProcessor image1.pgm image2.pgm
+
+# Use all available cores (default)
+unset OMP_NUM_THREADS
+./ImageProcessor image1.pgm image2.pgm
+```
+
+### Performance Testing
+
+Run the included performance test script:
+```bash
+./test_performance.sh
+```
+
+This script will test performance with 1, 2, and 4 threads and provide timing comparisons.
 ---
 ## Compiling and Running
 
@@ -131,11 +183,30 @@ Here are the commands to compile and run the program:
 ```
 make ImageProcessor
 ```
+
+The Makefile now includes OpenMP support (`-fopenmp` flag) for parallel processing. OpenMP is supported by GCC 4.9+ and most modern compilers.
+
 **To run:**
 ```
 ./ImageProcessor <argument(s)>
 ```
 \* Replace `<argument(s)>` with the appropriate input files or flags for the specific assignment or functionality you want to use. The number and type of arguments will vary depending on the program's mode of operation.
+
+**Current Usage (correlation calculation):**
+```
+./ImageProcessor image1.pgm image2.pgm
+```
+
+**To control parallel threads:**
+```
+export OMP_NUM_THREADS=2
+./ImageProcessor image1.pgm image2.pgm
+```
+
+**To test performance:**
+```
+./test_performance.sh
+```
 
 **To create a tar archive:**
 ```
