@@ -1,0 +1,13 @@
+# Compiled output
+*.o
+*.gch
+*.gcov
+a.out
+ImageProcessor
+
+# Archives
+*.tar
+
+# Doxygen output
+html/
+latex/

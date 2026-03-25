@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started — Image Processor Docs</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">🖼 <span>Image</span>Processor</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="getting-started.html" class="active">Getting Started</a></li>
+      <li><a href="usage.html">Usage</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="api.html">API Reference</a></li>
+      <li><a href="file-formats.html">File Formats</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-wrapper">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Getting Started</span>
+  </nav>
+
+  <div class="layout-sidebar">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <h4>On this page</h4>
+        <ul>
+          <li><a href="#prerequisites">Prerequisites</a></li>
+          <li><a href="#installation">Installation</a></li>
+          <li><a href="#build">Build</a></li>
+          <li><a href="#first-run">First Run</a></li>
+          <li><a href="#make-targets">Make Targets</a></li>
+          <li><a href="#doxygen">Generate Doxygen Docs</a></li>
+          <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <article>
+      <h1 class="section-title">Getting Started</h1>
+      <p class="section-subtitle">Everything you need to build and run Image Processor</p>
+
+      <!-- Prerequisites -->
+      <h3 id="prerequisites" class="subsection">Prerequisites</h3>
+      <p>Image Processor uses only the C++ Standard Library and GNU Make, so the dependency list is minimal:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tool</th>
+              <th>Minimum Version</th>
+              <th>Purpose</th>
+              <th>How to Check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>g++</strong></td>
+              <td>7.0 (C++11 support)</td>
+              <td>C++ compiler</td>
+              <td><code>g++ --version</code></td>
+            </tr>
+            <tr>
+              <td><strong>GNU Make</strong></td>
+              <td>3.81+</td>
+              <td>Build system</td>
+              <td><code>make --version</code></td>
+            </tr>
+            <tr>
+              <td><strong>Doxygen</strong></td>
+              <td>1.8+ (optional)</td>
+              <td>Generate HTML API docs</td>
+              <td><code>doxygen --version</code></td>
+            </tr>
+            <tr>
+              <td><strong>Valgrind</strong></td>
+              <td>3.15+ (optional)</td>
+              <td>Performance profiling</td>
+              <td><code>valgrind --version</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Installing dependencies on common platforms</h4>
+
+      <p><strong>Ubuntu / Debian:</strong></p>
+      <pre><code>sudo apt update
+sudo apt install -y g++ make doxygen valgrind</code></pre>
+
+      <p><strong>Fedora / RHEL / CentOS:</strong></p>
+      <pre><code>sudo dnf install -y gcc-c++ make doxygen valgrind</code></pre>
+
+      <p><strong>macOS (Homebrew):</strong></p>
+      <pre><code>brew install gcc make doxygen valgrind</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ macOS Note</strong>
+        The default <code>clang++</code> on macOS may work, but the project was developed and tested
+        with <code>g++</code>. If you encounter issues, install GCC via Homebrew and prefix with
+        <code>CXX=g++-13</code>.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Installation -->
+      <h3 id="installation" class="subsection">Installation</h3>
+      <p>Clone the repository from GitHub:</p>
+      <pre><code>git clone https://github.com/Andy-Borch/Image-Processor.git
+cd Image-Processor</code></pre>
+
+      <p>The project directory contains all source files at the top level:</p>
+      <pre><code>Image-Processor/
+├── main.cpp
+├── Image.h / Image.cpp
+├── Pixel.h / Pixel.cpp
+├── ColorImage.h / ColorImage.cpp
+├── GrayscaleImage.h / GrayscaleImage.cpp
+├── BinaryImage.h / BinaryImage.cpp
+├── Makefile
+├── Doxyfile
+├── image1.pgm          ← small test image (2×3)
+├── image2.pgm          ← small test image (2×3)
+└── large_testimage1.pgm  ← 1920×1080 performance test</code></pre>
+
+      <hr class="divider" />
+
+      <!-- Build -->
+      <h3 id="build" class="subsection">Build</h3>
+      <p>Compile the project with a single Make command:</p>
+      <pre><code>make ImageProcessor</code></pre>
+
+      <p>
+        This compiles each <code>.cpp</code> file to an object file (<code>.o</code>)
+        and links them into the <code>ImageProcessor</code> executable.
+        The Makefile uses the following compiler flags:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Flag</th><th>Effect</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>-Wall</code></td><td>Enable all standard compiler warnings</td></tr>
+            <tr><td><code>-Werror</code></td><td>Treat every warning as an error</td></tr>
+            <tr><td><code>-Wfatal-errors</code></td><td>Stop compilation on the first error</td></tr>
+            <tr><td><code>-O2</code></td><td>Level-2 optimization for faster runtime</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-tip">
+        <strong>✅ Successful build output</strong>
+        <code>g++ -Wall -Werror -Wfatal-errors -O2 -o ImageProcessor main.o Image.o ...</code><br>
+        The <code>ImageProcessor</code> binary will appear in the project root.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- First run -->
+      <h3 id="first-run" class="subsection">First Run</h3>
+      <p>The program expects exactly two grayscale image files as arguments:</p>
+
+      <pre><code>./ImageProcessor &lt;image1.pgm&gt; &lt;image2.pgm&gt;</code></pre>
+
+      <p>Try the bundled test images:</p>
+      <pre><code># Compare two different small images
+./ImageProcessor image1.pgm image2.pgm
+
+# Self-correlation (always outputs 1)
+./ImageProcessor image1.pgm image1.pgm
+
+# Large performance test (1920×1080)
+./ImageProcessor large_testimage1.pgm large_testimage1.pgm</code></pre>
+
+      <p>Expected output for a perfect self-correlation:</p>
+      <pre><code>1</code></pre>
+
+      <div class="callout callout-info">
+        <strong>ℹ️ Output format</strong>
+        The program prints the Pearson correlation coefficient to <code>stdout</code> and exits with
+        code <strong>0</strong> on success or <strong>-1</strong> on error. Error messages are
+        written to <code>stderr</code>.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Make targets -->
+      <h3 id="make-targets" class="subsection">Make Targets</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Target</th><th>Command</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ImageProcessor</strong></td>
+              <td><code>make ImageProcessor</code></td>
+              <td>Compile all sources and link the executable</td>
+            </tr>
+            <tr>
+              <td><strong>tar</strong></td>
+              <td><code>make tar</code></td>
+              <td>Create <code>aborch_ImageProcessor.tar</code> archive of source files</td>
+            </tr>
+            <tr>
+              <td><strong>clean</strong></td>
+              <td><code>make clean</code></td>
+              <td>Remove executable, object files, and build artifacts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>To perform a clean rebuild:</p>
+      <pre><code>make clean && make ImageProcessor</code></pre>
+
+      <hr class="divider" />
+
+      <!-- Doxygen -->
+      <h3 id="doxygen" class="subsection">Generate Doxygen Docs</h3>
+      <p>
+        All source files contain <a href="https://www.doxygen.nl/" target="_blank" rel="noopener">Doxygen</a>-compatible
+        comments. To generate an HTML API reference:
+      </p>
+
+      <pre><code># Use the provided Doxyfile configuration
+doxygen Doxyfile
+
+# Open the generated docs in your browser
+open html/index.html       # macOS
+xdg-open html/index.html   # Linux</code></pre>
+
+      <div class="callout callout-tip">
+        <strong>💡 Tip</strong>
+        The <code>Doxyfile</code> in the repository root is pre-configured with
+        <code>PROJECT_NAME = "Image Processor"</code>. You can customise it further by editing
+        the file or running <code>doxygen -g</code> to regenerate a default configuration.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Troubleshooting -->
+      <h3 id="troubleshooting" class="subsection">Troubleshooting</h3>
+
+      <h4>Compilation fails with "command not found: g++"</h4>
+      <p>Install the GCC C++ compiler for your platform (see <a href="#prerequisites">Prerequisites</a>).</p>
+
+      <h4>Warning treated as error</h4>
+      <p>
+        The project uses <code>-Werror</code>, so any warning halts the build.
+        This is intentional. Make sure you are using a supported g++ version and have not modified
+        any source files to introduce new warnings.
+      </p>
+
+      <h4>"Error: Incorrect number of arguments provided"</h4>
+      <p>
+        You must supply exactly two image file paths. Running
+        <code>./ImageProcessor</code> with no arguments or with one or three arguments will produce
+        this error.
+      </p>
+
+      <h4>"Error opening image file"</h4>
+      <p>
+        One or both of the provided file paths does not exist or is not readable.
+        Check the path and file permissions.
+      </p>
+
+      <h4>Executable not found after <code>make</code></h4>
+      <p>
+        Run <code>make clean</code> then <code>make ImageProcessor</code> again.
+        Confirm that <code>g++</code> and <code>make</code> are on your <code>PATH</code>.
+      </p>
+    </article>
+  </div><!-- /.layout-sidebar -->
+</main>
+
+<footer>
+  <p>
+    Image Processor · C++ Image Processing Library ·
+    <a href="https://github.com/Andy-Borch/Image-Processor" target="_blank" rel="noopener">GitHub Repository</a>
+  </p>
+</footer>
+
+</body>
+</html>

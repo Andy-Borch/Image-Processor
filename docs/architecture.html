@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture — Image Processor Docs</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">🖼 <span>Image</span>Processor</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="getting-started.html">Getting Started</a></li>
+      <li><a href="usage.html">Usage</a></li>
+      <li><a href="architecture.html" class="active">Architecture</a></li>
+      <li><a href="api.html">API Reference</a></li>
+      <li><a href="file-formats.html">File Formats</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-wrapper">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Architecture</span>
+  </nav>
+
+  <div class="layout-sidebar">
+    <aside class="sidebar">
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <h4>On this page</h4>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#class-hierarchy">Class Hierarchy</a></li>
+          <li><a href="#image-class">Image (Base)</a></li>
+          <li><a href="#pixel-class">Pixel</a></li>
+          <li><a href="#color-class">ColorImage</a></li>
+          <li><a href="#grayscale-class">GrayscaleImage</a></li>
+          <li><a href="#binary-class">BinaryImage</a></li>
+          <li><a href="#data-flow">Data Flow</a></li>
+          <li><a href="#design-patterns">Design Patterns</a></li>
+          <li><a href="#file-structure">File Structure</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article>
+      <h1 class="section-title">Architecture</h1>
+      <p class="section-subtitle">Class hierarchy, design decisions, and runtime data flow</p>
+
+      <!-- Overview -->
+      <h3 id="overview" class="subsection">Overview</h3>
+      <p>
+        Image Processor is structured around a classic object-oriented hierarchy.
+        A single abstract base class (<code>Image</code>) defines the shared interface and data
+        storage. Three concrete subclasses provide format-specific loading, normalization, and
+        conversion logic. A separate value type (<code>Pixel</code>) models individual pixels
+        in all three colour modes.
+      </p>
+      <p>
+        The entry point (<code>main.cpp</code>) validates arguments and delegates everything to
+        the static factory method <code>Image::run()</code>, which determines the image format
+        at runtime and creates the appropriate subclass instance.
+      </p>
+
+      <hr class="divider" />
+
+      <!-- Class hierarchy diagram -->
+      <h3 id="class-hierarchy" class="subsection">Class Hierarchy</h3>
+
+      <div class="class-tree">
+<span class="root">Image</span>  (abstract)
+│  ├── rows, cols, maxPossibleVal
+│  ├── imageData : vector&lt;vector&lt;Pixel&gt;&gt;
+│  ├── rowChecksumVec / colChecksumVec
+│  ├── <span class="fn">loadImage()</span>             <span class="cm">// pure virtual</span>
+│  ├── <span class="fn">regularize()</span>           <span class="cm">// pure virtual</span>
+│  ├── <span class="fn">convertToBinary()</span>      <span class="cm">// pure virtual</span>
+│  ├── <span class="fn">convertToGrayscale()</span>   <span class="cm">// pure virtual</span>
+│  ├── <span class="fn">convertToRGB()</span>         <span class="cm">// pure virtual</span>
+│  └── <span class="fn">run()</span>                  <span class="cm">// static factory &amp; driver</span>
+│
+├── <span class="child">ColorImage</span>       (.ppm / P3)
+│     └── loadImage, regularize, convertToBinary, convertToGrayscale
+│
+├── <span class="child">GrayscaleImage</span>   (.pgm / P2)
+│     └── loadImageFast, regularize, convertToBinary, convertToRGB
+│     └── <span class="fn">correlation()</span>  <span class="cm">// Pearson coefficient</span>
+│
+└── <span class="child">BinaryImage</span>      (.pbm / P1)
+      └── loadImage, convertToGrayscale, convertToRGB
+
+<span class="root">Pixel</span>  (standalone value type)
+  ├── redValue, greenValue, blueValue   <span class="cm">// RGB mode</span>
+  ├── singleValue                       <span class="cm">// Grayscale / Binary mode</span>
+  └── type : PixelType  (RGB | GRAYSCALE | BINARY)
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Image base class -->
+      <h3 id="image-class" class="subsection">Image — Abstract Base Class</h3>
+      <p><strong>Files:</strong> <code>Image.h</code> / <code>Image.cpp</code></p>
+      <p>
+        The <code>Image</code> class is the cornerstone of the design. It owns all pixel data
+        via a 2-D <code>std::vector&lt;std::vector&lt;Pixel&gt;&gt;</code> and exposes the
+        pure-virtual interface that every concrete subclass must implement.
+      </p>
+
+      <h4>Shared state</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Member</th><th>Type</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>rows</code></td><td><code>int</code></td><td>Image height in pixels</td></tr>
+            <tr><td><code>cols</code></td><td><code>int</code></td><td>Image width in pixels</td></tr>
+            <tr><td><code>maxPossibleVal</code></td><td><code>int</code></td><td>Maximum legal pixel value (from file header)</td></tr>
+            <tr><td><code>actualMaxVal</code></td><td><code>int</code></td><td>Actual maximum pixel value found in data</td></tr>
+            <tr><td><code>actualMinVal</code></td><td><code>int</code></td><td>Actual minimum pixel value found in data</td></tr>
+            <tr><td><code>imageData</code></td><td><code>vector&lt;vector&lt;Pixel&gt;&gt;</code></td><td>2-D pixel grid (row-major)</td></tr>
+            <tr><td><code>rowChecksumVec</code></td><td><code>vector&lt;int&gt;</code></td><td>Sum of each row</td></tr>
+            <tr><td><code>colChecksumVec</code></td><td><code>vector&lt;int&gt;</code></td><td>Sum of each column</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Key non-virtual methods</h4>
+      <ul style="margin:.5rem 0 1rem 1.25rem;font-size:.9rem;">
+        <li><code>run(arg1, arg2)</code> — static entry point; reads format header, constructs subclass, calls correlation</li>
+        <li><code>getInputFormat(filename)</code> — opens file, reads magic number, returns format string</li>
+        <li><code>imageFileIsValid(filename)</code> — validates all header fields and pixel count</li>
+        <li><code>computeRowChecksums()</code> / <code>computeColChecksums()</code> — build checksum vectors</li>
+        <li><code>writeRowChecksum()</code> / <code>writeColChecksum()</code> — persist checksums to disk</li>
+        <li><code>writeImage(filename)</code> — write current image data to a file</li>
+      </ul>
+
+      <hr class="divider" />
+
+      <!-- Pixel class -->
+      <h3 id="pixel-class" class="subsection">Pixel — Value Type</h3>
+      <p><strong>Files:</strong> <code>Pixel.h</code> / <code>Pixel.cpp</code></p>
+      <p>
+        <code>Pixel</code> is a lightweight value type that can represent a pixel in any of
+        the three colour modes.
+      </p>
+      <ul style="margin:.5rem 0 1rem 1.25rem;font-size:.9rem;">
+        <li><strong>RGB mode</strong>: stores three channels — <code>redValue</code>, <code>greenValue</code>, <code>blueValue</code></li>
+        <li><strong>Grayscale / Binary mode</strong>: stores a single intensity — <code>singleValue</code></li>
+        <li><strong>type</strong>: a <code>PixelType</code> enum (<code>RGB</code>, <code>GRAYSCALE</code>, <code>BINARY</code>) tags the active mode</li>
+        <li>Channels that are not in use are stored as <code>-1</code></li>
+        <li><code>pixelSum()</code> returns <code>R + G + B</code> — used for binary thresholding</li>
+      </ul>
+
+      <hr class="divider" />
+
+      <!-- ColorImage -->
+      <h3 id="color-class" class="subsection">ColorImage — RGB / PPM</h3>
+      <p><strong>Files:</strong> <code>ColorImage.h</code> / <code>ColorImage.cpp</code> &nbsp;·&nbsp; Format: <code>P3</code></p>
+      <p>
+        Handles the PPM (Portable Pixmap) format. Each pixel stores three channels in the range
+        0–255. Key behaviours:
+      </p>
+      <ul style="margin:.5rem 0 1rem 1.25rem;font-size:.9rem;">
+        <li><code>loadImage()</code> — parses P3 header and reads RGB triplets; tracks min/max per channel</li>
+        <li><code>regularize()</code> — applies <em>min-max rescaling</em> to all three channels independently: <code>(v - min) × 255 / (max - min)</code></li>
+        <li><code>convertToBinary()</code> — thresholds at 382.5 (half of max possible RGB sum of 765)</li>
+        <li><code>convertToGrayscale()</code> — averages the three channels: <code>(R + G + B) / 3</code></li>
+      </ul>
+
+      <hr class="divider" />
+
+      <!-- GrayscaleImage -->
+      <h3 id="grayscale-class" class="subsection">GrayscaleImage — Grayscale / PGM</h3>
+      <p><strong>Files:</strong> <code>GrayscaleImage.h</code> / <code>GrayscaleImage.cpp</code> &nbsp;·&nbsp; Format: <code>P2</code></p>
+      <p>
+        The most feature-rich subclass. Handles PGM (Portable Graymap) format and provides
+        the correlation algorithm. Key behaviours:
+      </p>
+      <ul style="margin:.5rem 0 1rem 1.25rem;font-size:.9rem;">
+        <li><code>loadImageFast()</code> — reads the entire file into an <code>std::istringstream</code> first, then parses token-by-token, reducing system-call overhead</li>
+        <li><code>regularize()</code> — same min-max formula as ColorImage but applied to the single channel</li>
+        <li><code>convertToBinary()</code> — thresholds at 127.5 (half of 255)</li>
+        <li><code>convertToRGB()</code> — copies intensity into all three channels (grey → RGB)</li>
+        <li><code>correlation(img1, img2)</code> — computes Pearson coefficient; validates equal dimensions; detects NaN</li>
+        <li><code>getAverageIntensity(img)</code> — helper used by <code>correlation()</code>; accepts <code>const&amp;</code> to avoid a copy</li>
+      </ul>
+
+      <div class="callout callout-tip">
+        <strong>💡 Performance note</strong>
+        The fast-loader reads the file once into a string buffer, then parses it with
+        <code>std::istringstream</code>. This approach was measured with Valgrind Callgrind and
+        reduces total instruction count for a 1920×1080 image by approximately 3%.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- BinaryImage -->
+      <h3 id="binary-class" class="subsection">BinaryImage — Binary / PBM</h3>
+      <p><strong>Files:</strong> <code>BinaryImage.h</code> / <code>BinaryImage.cpp</code> &nbsp;·&nbsp; Format: <code>P1</code></p>
+      <p>
+        Handles PBM (Portable Bitmap) format. Each pixel is 0 or 1. Key behaviours:
+      </p>
+      <ul style="margin:.5rem 0 1rem 1.25rem;font-size:.9rem;">
+        <li><code>loadImage()</code> — validates P1 header; max-value header field must be 1; stores 0 or 1 per pixel</li>
+        <li><code>convertToGrayscale()</code> — multiplies by 255: <code>0 → 0</code>, <code>1 → 255</code></li>
+        <li><code>convertToRGB()</code> — same multiplication applied to all three channels</li>
+        <li><code>regularize()</code> — no-op; binary images are already in their final range</li>
+      </ul>
+
+      <hr class="divider" />
+
+      <!-- Data flow -->
+      <h3 id="data-flow" class="subsection">Runtime Data Flow</h3>
+      <pre><code>main(argc, argv)
+  └── Image::run(argv[1], argv[2])
+        ├── getInputFormat(file1)  →  "P2"
+        ├── new GrayscaleImage(file1)
+        │     └── loadImageFast()  →  imageData filled
+        ├── new GrayscaleImage(file2)
+        │     └── loadImageFast()  →  imageData filled
+        └── GrayscaleImage::correlation(img1, img2)
+              ├── validate equal dimensions
+              ├── getAverageIntensity(img1)
+              ├── getAverageIntensity(img2)
+              ├── compute Pearson r
+              ├── validate !isnan(r)
+              └── cout &lt;&lt; r  →  stdout</code></pre>
+
+      <hr class="divider" />
+
+      <!-- Design patterns -->
+      <h3 id="design-patterns" class="subsection">Design Patterns Used</h3>
+
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
+        <div class="card">
+          <div class="card-icon">🏛</div>
+          <h3>Template Method</h3>
+          <p>
+            <code>Image::run()</code> defines the overall algorithm skeleton.
+            Steps like <code>loadImage()</code> and <code>regularize()</code> are deferred to subclasses.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏭</div>
+          <h3>Factory (Simple)</h3>
+          <p>
+            <code>Image::run()</code> reads the magic number header and instantiates the correct
+            concrete class (<code>ColorImage</code>, <code>GrayscaleImage</code>, or
+            <code>BinaryImage</code>) without the caller knowing which.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔀</div>
+          <h3>Polymorphism</h3>
+          <p>
+            All image-specific operations are declared virtual in <code>Image</code> and
+            overridden in each subclass, enabling uniform treatment of any image type.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📦</div>
+          <h3>Value Object</h3>
+          <p>
+            <code>Pixel</code> encapsulates pixel state with no identity semantics.
+            Stored by value in the 2-D vector; copy-semantics are used intentionally.
+          </p>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- File structure -->
+      <h3 id="file-structure" class="subsection">Source File Dependency Map</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>File</th><th>Depends On</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>main.cpp</code></td><td><code>Image.h</code></td><td>Entry point, argument validation</td></tr>
+            <tr><td><code>Image.h</code></td><td><code>Pixel.h</code>, STL</td><td>Abstract base class declaration</td></tr>
+            <tr><td><code>Image.cpp</code></td><td><code>Image.h</code>, <code>ColorImage.h</code>, <code>GrayscaleImage.h</code>, <code>BinaryImage.h</code></td><td>Base class + factory implementation</td></tr>
+            <tr><td><code>Pixel.h</code></td><td>—</td><td>Pixel value type declaration</td></tr>
+            <tr><td><code>Pixel.cpp</code></td><td><code>Pixel.h</code></td><td>Pixel implementation</td></tr>
+            <tr><td><code>ColorImage.h</code></td><td><code>Image.h</code></td><td>RGB subclass declaration</td></tr>
+            <tr><td><code>ColorImage.cpp</code></td><td><code>ColorImage.h</code></td><td>RGB subclass implementation</td></tr>
+            <tr><td><code>GrayscaleImage.h</code></td><td><code>Image.h</code>, <code>&lt;cmath&gt;</code></td><td>Grayscale subclass declaration</td></tr>
+            <tr><td><code>GrayscaleImage.cpp</code></td><td><code>GrayscaleImage.h</code>, <code>&lt;sstream&gt;</code></td><td>Grayscale subclass implementation</td></tr>
+            <tr><td><code>BinaryImage.h</code></td><td><code>Image.h</code></td><td>Binary subclass declaration</td></tr>
+            <tr><td><code>BinaryImage.cpp</code></td><td><code>BinaryImage.h</code></td><td>Binary subclass implementation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div><!-- /.layout-sidebar -->
+</main>
+
+<footer>
+  <p>
+    Image Processor · C++ Image Processing Library ·
+    <a href="https://github.com/Andy-Borch/Image-Processor" target="_blank" rel="noopener">GitHub Repository</a>
+  </p>
+</footer>
+
+</body>
+</html>

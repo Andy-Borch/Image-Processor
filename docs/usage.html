@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage Guide — Image Processor Docs</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">🖼 <span>Image</span>Processor</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="getting-started.html">Getting Started</a></li>
+      <li><a href="usage.html" class="active">Usage</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="api.html">API Reference</a></li>
+      <li><a href="file-formats.html">File Formats</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-wrapper">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Usage Guide</span>
+  </nav>
+
+  <div class="layout-sidebar">
+    <aside class="sidebar">
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <h4>On this page</h4>
+        <ul>
+          <li><a href="#synopsis">Synopsis</a></li>
+          <li><a href="#arguments">Arguments</a></li>
+          <li><a href="#exit-codes">Exit Codes</a></li>
+          <li><a href="#examples">Examples</a></li>
+          <li><a href="#understanding-output">Understanding Output</a></li>
+          <li><a href="#error-reference">Error Reference</a></li>
+          <li><a href="#performance">Performance Testing</a></li>
+          <li><a href="#historical">Historical Modes</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article>
+      <h1 class="section-title">Usage Guide</h1>
+      <p class="section-subtitle">Command-line interface, examples, and output interpretation</p>
+
+      <!-- Synopsis -->
+      <h3 id="synopsis" class="subsection">Synopsis</h3>
+      <pre><code>./ImageProcessor &lt;image1&gt; &lt;image2&gt;</code></pre>
+      <p>
+        The program accepts exactly two positional arguments — paths to grayscale PGM image files —
+        computes the Pearson correlation coefficient between them, prints it to <code>stdout</code>,
+        and exits.
+      </p>
+
+      <hr class="divider" />
+
+      <!-- Arguments -->
+      <h3 id="arguments" class="subsection">Arguments</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Position</th><th>Name</th><th>Type</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>1</code></td>
+              <td><code>image1</code></td>
+              <td>file path</td>
+              <td>Path to the first grayscale image (<code>.pgm</code>, P2 format)</td>
+            </tr>
+            <tr>
+              <td><code>2</code></td>
+              <td><code>image2</code></td>
+              <td>file path</td>
+              <td>Path to the second grayscale image (<code>.pgm</code>, P2 format)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Both images must have identical dimensions</strong>
+        The Pearson correlation requires a one-to-one pixel mapping. If the two images have
+        different widths or heights the program exits with an error.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Exit codes -->
+      <h3 id="exit-codes" class="subsection">Exit Codes</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Code</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>0</code></td><td>Success — correlation coefficient printed to stdout</td></tr>
+            <tr><td><code>-1</code> (255)</td><td>Failure — an error occurred; message printed to stderr</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Examples -->
+      <h3 id="examples" class="subsection">Examples</h3>
+
+      <h4>1 — Compare two small test images</h4>
+      <pre><code>./ImageProcessor image1.pgm image2.pgm</code></pre>
+      <p>
+        Compares the two bundled 2×3 images. They are related but not identical, so
+        the output will be a coefficient close to (but not exactly) 1.
+      </p>
+
+      <h4>2 — Self-correlation (perfect correlation)</h4>
+      <pre><code>./ImageProcessor image1.pgm image1.pgm
+# Output: 1</code></pre>
+      <p>Comparing an image with itself always returns <code>1</code>.</p>
+
+      <h4>3 — Large image correlation</h4>
+      <pre><code>./ImageProcessor large_testimage1.pgm large_testimage1.pgm
+# Output: 1</code></pre>
+      <p>Tests performance on a full 1920×1080 image (2,073,600 pixels).</p>
+
+      <h4>4 — Timed performance run</h4>
+      <pre><code>time ./ImageProcessor large_testimage1.pgm large_testimage1.pgm</code></pre>
+      <p>Use the shell's <code>time</code> builtin to measure execution speed.</p>
+
+      <h4>5 — Capture output to a file</h4>
+      <pre><code>./ImageProcessor image1.pgm image2.pgm &gt; result.txt
+cat result.txt</code></pre>
+
+      <h4>6 — Suppress error output</h4>
+      <pre><code>./ImageProcessor image1.pgm image2.pgm 2&gt;/dev/null</code></pre>
+
+      <hr class="divider" />
+
+      <!-- Understanding output -->
+      <h3 id="understanding-output" class="subsection">Understanding the Output</h3>
+      <p>
+        The program outputs a single floating-point number — the
+        <strong>Pearson correlation coefficient</strong> — which ranges from <code>-1</code>
+        to <code>1</code>:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Value</th><th>Interpretation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>1.0</code></td><td>Perfect positive correlation (images are identical or proportionally related)</td></tr>
+            <tr><td><code>0.7 – 0.99</code></td><td>Strong positive correlation</td></tr>
+            <tr><td><code>0.3 – 0.69</code></td><td>Moderate positive correlation</td></tr>
+            <tr><td><code>0.0</code></td><td>No linear correlation</td></tr>
+            <tr><td><code>-0.3 – -0.69</code></td><td>Moderate negative correlation</td></tr>
+            <tr><td><code>-1.0</code></td><td>Perfect negative correlation (images are inversely related)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Formula used</h4>
+      <p>
+        The Pearson correlation coefficient <em>r</em> for images <em>X</em> and <em>Y</em>
+        (with <em>n</em> pixels each) is:
+      </p>
+      <pre><code>r = Σ (xᵢ - x̄)(yᵢ - ȳ)
+    ───────────────────────────────────────
+    √[ Σ(xᵢ - x̄)² · Σ(yᵢ - ȳ)² ]</code></pre>
+      <p>
+        where <code>x̄</code> and <code>ȳ</code> are the mean pixel intensities of each image.
+        The result is validated to detect <code>NaN</code> (e.g., caused by a constant-value image
+        with zero variance).
+      </p>
+
+      <hr class="divider" />
+
+      <!-- Error reference -->
+      <h3 id="error-reference" class="subsection">Error Reference</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Error Message</th><th>Cause</th><th>Fix</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>Error: Incorrect number of arguments provided</code></td>
+              <td>Program called with &lt;2 or &gt;2 arguments</td>
+              <td>Provide exactly two file paths</td>
+            </tr>
+            <tr>
+              <td><code>Error opening image file</code></td>
+              <td>File not found or insufficient permissions</td>
+              <td>Verify the path and read permissions</td>
+            </tr>
+            <tr>
+              <td><code>Unknown input file format</code></td>
+              <td>File does not start with a valid Netpbm magic number</td>
+              <td>Ensure the file is a valid PGM (P2), PPM (P3), or PBM (P1)</td>
+            </tr>
+            <tr>
+              <td><code>Missing image header information</code></td>
+              <td>Header fields (width, height, max value) are absent or malformed</td>
+              <td>Check the image file header is complete and well-formed</td>
+            </tr>
+            <tr>
+              <td><code>Invalid pixel value</code></td>
+              <td>A pixel value exceeds the declared max value</td>
+              <td>Ensure all pixel values are within the declared range</td>
+            </tr>
+            <tr>
+              <td><code>Mismatched element count</code></td>
+              <td>The file contains fewer pixels than width×height requires</td>
+              <td>Verify the image file is not truncated</td>
+            </tr>
+            <tr>
+              <td><code>Images of unequal dimensions cannot be correlated</code></td>
+              <td>The two images have different width or height</td>
+              <td>Use images with the same dimensions</td>
+            </tr>
+            <tr>
+              <td><code>Correlation result is NaN</code></td>
+              <td>One or both images has zero variance (all pixels identical)</td>
+              <td>Use images with varying pixel values</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Performance testing -->
+      <h3 id="performance" class="subsection">Performance Testing</h3>
+      <p>
+        The project was profiled with Valgrind's Callgrind tool. After optimization, a
+        1920×1080 image correlation requires approximately <strong>3.38 billion instructions</strong>
+        (down from 3.48 billion before reference-parameter optimization).
+      </p>
+
+      <pre><code># Profile with Valgrind Callgrind
+valgrind --tool=callgrind ./ImageProcessor large_testimage1.pgm large_testimage1.pgm
+
+# Annotate the profile
+callgrind_annotate callgrind.out.&lt;pid&gt;</code></pre>
+
+      <div class="callout callout-info">
+        <strong>ℹ️ Key optimization applied</strong>
+        <code>getAverageIntensity()</code> was modified to accept a <code>const GrayscaleImage&amp;</code>
+        reference instead of passing by value. This eliminated a full copy of the image data on
+        each call, saving ~100 million instructions on the large test image.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Historical modes -->
+      <h3 id="historical" class="subsection">Historical Modes (per Assignment)</h3>
+      <p>
+        The <code>Image::run()</code> method was updated with each course assignment.
+        The table below documents what each version of the program did.
+        To use a historical mode, check out the relevant commit and recompile.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Assignment</th><th>Behavior of <code>run()</code></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>Validate image file format and integrity</td></tr>
+            <tr><td>1</td><td>Compare provided row/column checksum files against image data</td></tr>
+            <tr><td>2</td><td>Generate and write row/column checksums to output files</td></tr>
+            <tr><td>3</td><td>Regularize (normalize) image intensities to 0–255</td></tr>
+            <tr><td>4</td><td>Convert image between RGB, Grayscale, and Binary formats</td></tr>
+            <tr><td>5</td><td>Compute Pearson correlation + generate Doxygen documentation</td></tr>
+            <tr><td>6</td><td>Optimized correlation (current build — Valgrind-profiled)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </div><!-- /.layout-sidebar -->
+</main>
+
+<footer>
+  <p>
+    Image Processor · C++ Image Processing Library ·
+    <a href="https://github.com/Andy-Borch/Image-Processor" target="_blank" rel="noopener">GitHub Repository</a>
+  </p>
+</footer>
+
+</body>
+</html>

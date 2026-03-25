@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Formats — Image Processor Docs</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">🖼 <span>Image</span>Processor</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="getting-started.html">Getting Started</a></li>
+      <li><a href="usage.html">Usage</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="api.html">API Reference</a></li>
+      <li><a href="file-formats.html" class="active">File Formats</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-wrapper">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>File Formats</span>
+  </nav>
+
+  <div class="layout-sidebar">
+    <aside class="sidebar">
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <h4>On this page</h4>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#pgm">PGM — Grayscale (P2)</a></li>
+          <li><a href="#ppm">PPM — Color/RGB (P3)</a></li>
+          <li><a href="#pbm">PBM — Binary (P1)</a></li>
+          <li><a href="#validation">Validation Rules</a></li>
+          <li><a href="#conversion">Conversion Table</a></li>
+          <li><a href="#checksums">Checksum Files</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article>
+      <h1 class="section-title">File Formats</h1>
+      <p class="section-subtitle">PBM, PGM, and PPM format specifications as understood by Image Processor</p>
+
+      <!-- Overview -->
+      <h3 id="overview" class="subsection">Overview</h3>
+      <p>
+        Image Processor uses the <strong>Netpbm</strong> family of portable bitmap formats.
+        These are plain-text, ASCII-based formats with a simple structure: a magic-number header
+        followed by pixel values separated by whitespace.  They require no external libraries to
+        read or write.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Format</th>
+              <th>Magic Number</th>
+              <th>Extension</th>
+              <th>Channels</th>
+              <th>Value Range</th>
+              <th>Class</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PGM</strong> — Grayscale</td>
+              <td><code>P2</code></td>
+              <td><code>.pgm</code></td>
+              <td>1 (intensity)</td>
+              <td>0 – max_value</td>
+              <td><a href="api.html#class-grayscaleimage">GrayscaleImage</a></td>
+            </tr>
+            <tr>
+              <td><strong>PPM</strong> — Color</td>
+              <td><code>P3</code></td>
+              <td><code>.ppm</code></td>
+              <td>3 (R, G, B)</td>
+              <td>0 – max_value</td>
+              <td><a href="api.html#class-colorimage">ColorImage</a></td>
+            </tr>
+            <tr>
+              <td><strong>PBM</strong> — Binary</td>
+              <td><code>P1</code></td>
+              <td><code>.pbm</code></td>
+              <td>1 (bit)</td>
+              <td>0 or 1</td>
+              <td><a href="api.html#class-binaryimage">BinaryImage</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- PGM -->
+      <h3 id="pgm" class="subsection">PGM — Portable Graymap (P2)</h3>
+      <p>
+        A grayscale image where each pixel is a single integer intensity value.
+        This is the <strong>primary format</strong> used by Image Processor for the correlation feature.
+      </p>
+
+      <h4>Structure</h4>
+      <pre><code>P2
+&lt;width&gt; &lt;height&gt;
+&lt;max_value&gt;
+&lt;pixel_1&gt; &lt;pixel_2&gt; ... &lt;pixel_N&gt;</code></pre>
+
+      <h4>Field Descriptions</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>P2</code></td><td>string</td><td>Magic number — identifies PGM format</td></tr>
+            <tr><td><code>width</code></td><td>int &gt; 0</td><td>Number of pixel columns</td></tr>
+            <tr><td><code>height</code></td><td>int &gt; 0</td><td>Number of pixel rows</td></tr>
+            <tr><td><code>max_value</code></td><td>int (typically 255)</td><td>Maximum legal pixel value; must match actual data</td></tr>
+            <tr><td>pixel values</td><td>int × (width × height)</td><td>Row-major, space/newline separated, range 0 – max_value</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Example — 2×3 grayscale image</h4>
+      <pre><code>P2
+2 3
+255
+0 15
+30 45
+60 75</code></pre>
+
+      <p>
+        The bundled test file <code>image1.pgm</code> contains exactly this data:
+        a 2-column × 3-row image with intensities 0, 15, 30, 45, 60, 75.
+      </p>
+
+      <div class="callout callout-info">
+        <strong>ℹ️ Fast loading</strong>
+        <code>GrayscaleImage</code> uses <code>loadImageFast()</code>, which reads the entire file
+        into memory first and then parses it with <code>std::istringstream</code> for improved
+        performance on large files.
+      </div>
+
+      <hr class="divider" />
+
+      <!-- PPM -->
+      <h3 id="ppm" class="subsection">PPM — Portable Pixmap (P3)</h3>
+      <p>
+        An RGB colour image where each pixel is represented by three consecutive integers
+        (red, green, blue channels).
+      </p>
+
+      <h4>Structure</h4>
+      <pre><code>P3
+&lt;width&gt; &lt;height&gt;
+&lt;max_value&gt;
+&lt;r1&gt; &lt;g1&gt; &lt;b1&gt;  &lt;r2&gt; &lt;g2&gt; &lt;b2&gt;  ...</code></pre>
+
+      <h4>Field Descriptions</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>P3</code></td><td>string</td><td>Magic number — identifies PPM format</td></tr>
+            <tr><td><code>width</code></td><td>int &gt; 0</td><td>Number of pixel columns</td></tr>
+            <tr><td><code>height</code></td><td>int &gt; 0</td><td>Number of pixel rows</td></tr>
+            <tr><td><code>max_value</code></td><td>int (typically 255)</td><td>Maximum legal value for any channel</td></tr>
+            <tr><td>pixel values</td><td>int × (width × height × 3)</td><td>R, G, B triplets in row-major order</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Example — 2×2 color image</h4>
+      <pre><code>P3
+2 2
+255
+255 0 0   0 255 0
+0 0 255   128 128 128</code></pre>
+
+      <p>
+        Pixel (0,0) = red, (0,1) = green, (1,0) = blue, (1,1) = middle grey.
+      </p>
+
+      <hr class="divider" />
+
+      <!-- PBM -->
+      <h3 id="pbm" class="subsection">PBM — Portable Bitmap (P1)</h3>
+      <p>
+        A binary image where each pixel is exactly <code>0</code> (black) or <code>1</code> (white).
+      </p>
+
+      <h4>Structure</h4>
+      <pre><code>P1
+&lt;width&gt; &lt;height&gt;
+1
+&lt;pixel_1&gt; &lt;pixel_2&gt; ... &lt;pixel_N&gt;</code></pre>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ max_value must be exactly 1</strong>
+        Image Processor validates that the max-value header field in a P1 file equals
+        <code>1</code>. Any other value causes a load error.
+      </div>
+
+      <h4>Field Descriptions</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>P1</code></td><td>string</td><td>Magic number — identifies PBM format</td></tr>
+            <tr><td><code>width</code></td><td>int &gt; 0</td><td>Number of pixel columns</td></tr>
+            <tr><td><code>height</code></td><td>int &gt; 0</td><td>Number of pixel rows</td></tr>
+            <tr><td><code>1</code></td><td>int = 1</td><td>Max value; must be 1 for binary format</td></tr>
+            <tr><td>pixel values</td><td>0 or 1 × (width × height)</td><td>Row-major, whitespace separated</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Example — 3×2 binary image</h4>
+      <pre><code>P1
+3 2
+1
+1 0 1
+0 1 0</code></pre>
+
+      <hr class="divider" />
+
+      <!-- Validation rules -->
+      <h3 id="validation" class="subsection">Validation Rules</h3>
+      <p>
+        Every image file is validated by <code>Image::imageFileIsValid()</code> before processing.
+        The following rules must all pass:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Rule</th><th>Error if violated</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>File must be readable</td><td><code>Error opening image file</code></td></tr>
+            <tr><td>2</td><td>First token must be <code>P1</code>, <code>P2</code>, or <code>P3</code></td><td><code>Unknown input file format</code></td></tr>
+            <tr><td>3</td><td>Width and height must be present and &gt; 0</td><td><code>Missing image header information</code></td></tr>
+            <tr><td>4</td><td>Max-value must be present and valid</td><td><code>Missing image header information</code></td></tr>
+            <tr><td>5</td><td>Total pixel values must equal width × height (× 3 for PPM)</td><td><code>Mismatched element count</code></td></tr>
+            <tr><td>6</td><td>Every pixel value must be 0 ≤ v ≤ max_value</td><td><code>Invalid pixel value</code></td></tr>
+            <tr><td>7</td><td>PBM max-value must equal exactly 1</td><td><code>Invalid max value for binary image</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Conversion table -->
+      <h3 id="conversion" class="subsection">Conversion Table</h3>
+      <p>
+        The virtual conversion methods allow any image type to be converted to another.
+        The table below shows the formula used for each direction:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>From → To</th>
+              <th>Method</th>
+              <th>Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>RGB → Grayscale</td>
+              <td><code>ColorImage::convertToGrayscale()</code></td>
+              <td><code>I = (R + G + B) / 3</code></td>
+            </tr>
+            <tr>
+              <td>RGB → Binary</td>
+              <td><code>ColorImage::convertToBinary()</code></td>
+              <td><code>B = (R+G+B &gt; 382.5) ? 1 : 0</code></td>
+            </tr>
+            <tr>
+              <td>Grayscale → Binary</td>
+              <td><code>GrayscaleImage::convertToBinary()</code></td>
+              <td><code>B = (I &gt; 127.5) ? 1 : 0</code></td>
+            </tr>
+            <tr>
+              <td>Grayscale → RGB</td>
+              <td><code>GrayscaleImage::convertToRGB()</code></td>
+              <td><code>R = G = B = I</code></td>
+            </tr>
+            <tr>
+              <td>Binary → Grayscale</td>
+              <td><code>BinaryImage::convertToGrayscale()</code></td>
+              <td><code>I = B × 255</code></td>
+            </tr>
+            <tr>
+              <td>Binary → RGB</td>
+              <td><code>BinaryImage::convertToRGB()</code></td>
+              <td><code>R = G = B = B × 255</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Checksum files -->
+      <h3 id="checksums" class="subsection">Checksum Files</h3>
+      <p>
+        The row and column checksum features (Assignments 1 and 2) produce simple text files.
+      </p>
+
+      <h4>Row checksum file</h4>
+      <p>
+        One integer per line. Line <em>i</em> contains the sum of all pixel intensities in row <em>i</em>
+        (for RGB images, the sum of all three channels for each pixel in the row).
+      </p>
+      <pre><code>15       ← sum of row 0
+120      ← sum of row 1
+230      ← sum of row 2
+...</code></pre>
+
+      <h4>Column checksum file</h4>
+      <p>
+        One integer per line. Line <em>j</em> contains the sum of all pixel intensities in column <em>j</em>.
+      </p>
+      <pre><code>90       ← sum of column 0
+100      ← sum of column 1
+...</code></pre>
+
+      <div class="callout callout-info">
+        <strong>ℹ️ Checksum validation</strong>
+        <code>Image::providedFilesAreValid()</code> checks that an existing checksum file has
+        exactly the expected number of lines (rows or columns) and that each value is a valid
+        non-negative integer.
+      </div>
+    </article>
+  </div><!-- /.layout-sidebar -->
+</main>
+
+<footer>
+  <p>
+    Image Processor · C++ Image Processing Library ·
+    <a href="https://github.com/Andy-Borch/Image-Processor" target="_blank" rel="noopener">GitHub Repository</a>
+  </p>
+</footer>
+
+</body>
+</html>

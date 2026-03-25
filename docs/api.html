@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference — Image Processor Docs</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<nav class="topnav" aria-label="Main navigation">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">🖼 <span>Image</span>Processor</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="getting-started.html">Getting Started</a></li>
+      <li><a href="usage.html">Usage</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="api.html" class="active">API Reference</a></li>
+      <li><a href="file-formats.html">File Formats</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-wrapper">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>API Reference</span>
+  </nav>
+
+  <div class="layout-sidebar">
+    <aside class="sidebar">
+      <nav class="sidebar-nav" aria-label="Page sections">
+        <h4>Classes</h4>
+        <ul>
+          <li><a href="#class-image">Image</a></li>
+          <li><a href="#class-pixel">Pixel</a></li>
+          <li><a href="#class-colorimage">ColorImage</a></li>
+          <li><a href="#class-grayscaleimage">GrayscaleImage</a></li>
+          <li><a href="#class-binaryimage">BinaryImage</a></li>
+        </ul>
+        <h4 style="margin-top:1rem;">Quick Links</h4>
+        <ul>
+          <li><a href="#enum-pixeltype">PixelType enum</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <article>
+      <h1 class="section-title">API Reference</h1>
+      <p class="section-subtitle">Complete class and method documentation for all five classes</p>
+
+      <div class="callout callout-info">
+        <strong>ℹ️ Doxygen docs</strong>
+        The source code contains full Doxygen comments. Run <code>doxygen Doxyfile</code>
+        in the project root to generate an interactive HTML reference in the <code>html/</code>
+        directory.
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <hr class="divider" />
+      <h2 id="class-image" style="font-size:1.4rem;margin-bottom:.25rem;">
+        class <code>Image</code>
+        <span class="api-label label-virtual" style="font-size:.7rem;vertical-align:middle;">Abstract</span>
+      </h2>
+      <p style="color:var(--text-light);font-size:.9rem;margin-bottom:1rem;">
+        Declared in <code>Image.h</code> &nbsp;·&nbsp; Implemented in <code>Image.cpp</code>
+      </p>
+      <p>
+        Abstract base class for all image types. Holds shared state (dimensions, pixel data,
+        checksums) and declares the pure-virtual interface that every concrete subclass must implement.
+      </p>
+
+      <h3 class="subsection" style="margin-top:1.5rem;">Data Members</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Member</th><th>Type</th><th>Access</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>rows</code></td><td><code>int</code></td><td>protected</td><td>Height of the image in pixels</td></tr>
+            <tr><td><code>cols</code></td><td><code>int</code></td><td>protected</td><td>Width of the image in pixels</td></tr>
+            <tr><td><code>maxPossibleVal</code></td><td><code>int</code></td><td>protected</td><td>Maximum legal pixel value declared in file header</td></tr>
+            <tr><td><code>actualMaxVal</code></td><td><code>int</code></td><td>protected</td><td>Largest pixel value actually present in the image</td></tr>
+            <tr><td><code>actualMinVal</code></td><td><code>int</code></td><td>protected</td><td>Smallest pixel value actually present in the image</td></tr>
+            <tr><td><code>imageData</code></td><td><code>vector&lt;vector&lt;Pixel&gt;&gt;</code></td><td>protected</td><td>2-D grid of pixels, row-major order</td></tr>
+            <tr><td><code>rowChecksumVec</code></td><td><code>vector&lt;int&gt;</code></td><td>protected</td><td>Per-row checksum values</td></tr>
+            <tr><td><code>colChecksumVec</code></td><td><code>vector&lt;int&gt;</code></td><td>protected</td><td>Per-column checksum values</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subsection">Static Methods</h3>
+
+      <div class="api-entry">
+        <h4>static int run(const std::string&amp; arg1, const std::string&amp; arg2)</h4>
+        <p>
+          Program driver and simple factory. Reads the magic-number header of <code>arg1</code>
+          to determine the image format, constructs the appropriate concrete subclass for both
+          arguments, and executes the current operation (correlation).
+        </p>
+        <p><span class="api-label label-param">param</span> <code>arg1</code> — path to the first image file</p>
+        <p><span class="api-label label-param">param</span> <code>arg2</code> — path to the second image file</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on failure</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>static std::string getInputFormat(const std::string&amp; filename)</h4>
+        <p>Opens <code>filename</code>, reads the first token (magic number), and returns it as a string.</p>
+        <p><span class="api-label label-returns">returns</span> Magic number string, e.g. <code>"P1"</code>, <code>"P2"</code>, <code>"P3"</code>, or empty string on error</p>
+      </div>
+
+      <h3 class="subsection">Virtual Methods</h3>
+
+      <div class="api-entry">
+        <h4>virtual int loadImage(const std::string&amp; filename) = 0</h4>
+        <p>
+          <span class="api-label label-virtual">pure virtual</span>
+          Load image pixel data from <code>filename</code> into <code>imageData</code>.
+          Each subclass validates the format header and fills <code>rows</code>, <code>cols</code>,
+          <code>maxPossibleVal</code>, <code>actualMaxVal</code>, <code>actualMinVal</code>.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on any error</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>virtual int regularize() = 0</h4>
+        <p>
+          <span class="api-label label-virtual">pure virtual</span>
+          Normalize pixel intensities to span the full 0–255 range using min-max rescaling.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on failure</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>virtual int convertToBinary() = 0</h4>
+        <p>
+          <span class="api-label label-virtual">pure virtual</span>
+          Convert pixel data to binary representation (0 or 1).
+          Threshold depends on the source format (127.5 for grayscale, 382.5 for RGB).
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on failure</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>virtual int convertToGrayscale() = 0</h4>
+        <p>
+          <span class="api-label label-virtual">pure virtual</span>
+          Convert pixel data to a single-channel grayscale representation.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on failure</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>virtual int convertToRGB() = 0</h4>
+        <p>
+          <span class="api-label label-virtual">pure virtual</span>
+          Convert pixel data to a three-channel RGB representation.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on failure</p>
+      </div>
+
+      <h3 class="subsection">Non-virtual Methods</h3>
+
+      <div class="api-entry">
+        <h4>int computeRowChecksums()</h4>
+        <p>Fills <code>rowChecksumVec</code> with the sum of pixel intensities in each row.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int computeColChecksums()</h4>
+        <p>Fills <code>colChecksumVec</code> with the sum of pixel intensities in each column.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int writeRowChecksum(const std::string&amp; filename)</h4>
+        <p>Writes <code>rowChecksumVec</code> contents to <code>filename</code>, one value per line.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> if file cannot be opened</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int writeColChecksum(const std::string&amp; filename)</h4>
+        <p>Writes <code>colChecksumVec</code> contents to <code>filename</code>, one value per line.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> if file cannot be opened</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int writeImage(const std::string&amp; filename)</h4>
+        <p>Writes the current image data to <code>filename</code> in the appropriate Netpbm format.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on failure</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>bool imageFileIsValid(const std::string&amp; filename)</h4>
+        <p>
+          Validates that <code>filename</code> is a well-formed Netpbm image: magic number,
+          valid header fields, correct pixel count, and values within declared range.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>true</code> if valid, <code>false</code> otherwise (error written to stderr)</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>bool providedFilesAreValid(const std::string&amp; rowFile, const std::string&amp; colFile)</h4>
+        <p>Validates that <code>rowFile</code> and <code>colFile</code> are well-formed checksum files matching the current image dimensions.</p>
+        <p><span class="api-label label-returns">returns</span> <code>true</code> if both files are valid</p>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <hr class="divider" />
+      <h2 id="class-pixel" style="font-size:1.4rem;margin-bottom:.25rem;">class <code>Pixel</code></h2>
+      <p style="color:var(--text-light);font-size:.9rem;margin-bottom:1rem;">
+        Declared in <code>Pixel.h</code> &nbsp;·&nbsp; Implemented in <code>Pixel.cpp</code>
+      </p>
+
+      <h3 id="enum-pixeltype" class="subsection">PixelType Enum</h3>
+      <pre><code>enum PixelType { RGB, GRAYSCALE, BINARY };</code></pre>
+      <p>Identifies which channel(s) of a <code>Pixel</code> are meaningful.</p>
+
+      <h3 class="subsection">Constructors</h3>
+
+      <div class="api-entry">
+        <h4>Pixel()</h4>
+        <p>Default constructor. Initialises all channels to <code>-1</code> and type to <code>RGB</code>.</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>Pixel(int val, PixelType t)</h4>
+        <p>Typed constructor for a single-value pixel (Grayscale or Binary).</p>
+        <p><span class="api-label label-param">param</span> <code>val</code> — pixel intensity value</p>
+        <p><span class="api-label label-param">param</span> <code>t</code> — pixel type (<code>GRAYSCALE</code> or <code>BINARY</code>)</p>
+      </div>
+
+      <h3 class="subsection">Accessors</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Method</th><th>Returns</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>getRedValue()</code></td><td><code>int</code></td><td>Red channel value, or <code>-1</code> if not RGB</td></tr>
+            <tr><td><code>getGreenValue()</code></td><td><code>int</code></td><td>Green channel value, or <code>-1</code> if not RGB</td></tr>
+            <tr><td><code>getBlueValue()</code></td><td><code>int</code></td><td>Blue channel value, or <code>-1</code> if not RGB</td></tr>
+            <tr><td><code>getSingleValue()</code></td><td><code>int</code></td><td>Grayscale/Binary intensity, or <code>-1</code> if RGB</td></tr>
+            <tr><td><code>getType()</code></td><td><code>PixelType</code></td><td>Current pixel type</td></tr>
+            <tr><td><code>pixelSum()</code></td><td><code>int</code></td><td>Sum of all RGB channels (used for binary thresholding)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subsection">Mutators</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Method</th><th>Parameter</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>setRed(v)</code></td><td><code>int v</code></td><td>Set red channel</td></tr>
+            <tr><td><code>setGreen(v)</code></td><td><code>int v</code></td><td>Set green channel</td></tr>
+            <tr><td><code>setBlue(v)</code></td><td><code>int v</code></td><td>Set blue channel</td></tr>
+            <tr><td><code>setValue(v)</code></td><td><code>int v</code></td><td>Set single-channel intensity</td></tr>
+            <tr><td><code>setType(t)</code></td><td><code>PixelType t</code></td><td>Change the pixel type</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <hr class="divider" />
+      <h2 id="class-colorimage" style="font-size:1.4rem;margin-bottom:.25rem;">
+        class <code>ColorImage</code>
+        <span style="font-size:.8rem;color:var(--text-light);font-weight:400;"> : public Image</span>
+      </h2>
+      <p style="color:var(--text-light);font-size:.9rem;margin-bottom:1rem;">
+        Declared in <code>ColorImage.h</code> &nbsp;·&nbsp; Implemented in <code>ColorImage.cpp</code> &nbsp;·&nbsp; Format: <code>P3</code>
+      </p>
+
+      <div class="api-entry">
+        <h4>int loadImage(const std::string&amp; filename) override</h4>
+        <p>Parses a P3 PPM file. Validates the magic number (<code>P3</code>), reads width/height/max-value header fields, then reads each pixel as an RGB triplet. Updates <code>actualMinVal</code> and <code>actualMaxVal</code>.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on parse error</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int regularize() override</h4>
+        <p>
+          Applies min-max rescaling to every channel of every pixel:
+          <code>newVal = (oldVal - min) × 255 / (max - min)</code>.
+          Uses <code>std::round</code> to produce integer results.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int convertToBinary() override</h4>
+        <p>Replaces each pixel with <code>1</code> if <code>pixelSum() &gt; 382.5</code>, else <code>0</code>. Threshold is half of the maximum possible RGB sum (3 × 255 / 2).</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int convertToGrayscale() override</h4>
+        <p>Replaces each pixel with a single-channel value equal to <code>(R + G + B) / 3</code>.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <hr class="divider" />
+      <h2 id="class-grayscaleimage" style="font-size:1.4rem;margin-bottom:.25rem;">
+        class <code>GrayscaleImage</code>
+        <span style="font-size:.8rem;color:var(--text-light);font-weight:400;"> : public Image</span>
+      </h2>
+      <p style="color:var(--text-light);font-size:.9rem;margin-bottom:1rem;">
+        Declared in <code>GrayscaleImage.h</code> &nbsp;·&nbsp; Implemented in <code>GrayscaleImage.cpp</code> &nbsp;·&nbsp; Format: <code>P2</code>
+      </p>
+
+      <div class="api-entry">
+        <h4>int loadImageFast(const std::string&amp; filename)</h4>
+        <p>
+          Optimised loader. Reads the entire file into a <code>std::string</code>, wraps it
+          in an <code>std::istringstream</code>, then tokenises. Validates P2 header and pixel
+          values. Significantly reduces system-call overhead compared to line-by-line reading.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on parse error</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int loadImage(const std::string&amp; filename) override</h4>
+        <p>Delegates to <code>loadImageFast()</code>.</p>
+        <p><span class="api-label label-returns">returns</span> result of <code>loadImageFast()</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int regularize() override</h4>
+        <p>Applies min-max rescaling to the single intensity channel of every pixel.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int convertToBinary() override</h4>
+        <p>Thresholds at <code>127.5</code>: pixels with intensity <code>&gt; 127.5</code> become <code>1</code>, all others become <code>0</code>.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int convertToRGB() override</h4>
+        <p>Copies the single intensity value to all three RGB channels (produces a grey-toned RGB image).</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>static int correlation(const GrayscaleImage&amp; img1, const GrayscaleImage&amp; img2)</h4>
+        <p>
+          <span class="api-label label-static">static</span>
+          Computes the Pearson correlation coefficient between two grayscale images.
+          Validates that both images have identical dimensions. Detects and rejects NaN results.
+          Prints the result to <code>stdout</code>.
+        </p>
+        <p><span class="api-label label-param">param</span> <code>img1</code> — first grayscale image (const reference)</p>
+        <p><span class="api-label label-param">param</span> <code>img2</code> — second grayscale image (const reference)</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> if dimensions differ or result is NaN</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>static double getAverageIntensity(const GrayscaleImage&amp; img)</h4>
+        <p>
+          <span class="api-label label-static">static</span>
+          Computes the mean pixel intensity across all pixels in <code>img</code>.
+          Accepts a const reference to avoid an expensive copy on large images.
+        </p>
+        <p><span class="api-label label-returns">returns</span> mean intensity as a <code>double</code></p>
+      </div>
+
+      <!-- ════════════════════════════════════════════════════ -->
+      <hr class="divider" />
+      <h2 id="class-binaryimage" style="font-size:1.4rem;margin-bottom:.25rem;">
+        class <code>BinaryImage</code>
+        <span style="font-size:.8rem;color:var(--text-light);font-weight:400;"> : public Image</span>
+      </h2>
+      <p style="color:var(--text-light);font-size:.9rem;margin-bottom:1rem;">
+        Declared in <code>BinaryImage.h</code> &nbsp;·&nbsp; Implemented in <code>BinaryImage.cpp</code> &nbsp;·&nbsp; Format: <code>P1</code>
+      </p>
+
+      <div class="api-entry">
+        <h4>int loadImage(const std::string&amp; filename) override</h4>
+        <p>
+          Parses a P1 PBM file. Validates magic number, header fields (max-value must equal
+          <code>1</code>), and that every pixel is exactly <code>0</code> or <code>1</code>.
+        </p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code> on success, <code>-1</code> on parse error</p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int regularize() override</h4>
+        <p>No-op. Binary images are already in their final range {0, 1}.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int convertToGrayscale() override</h4>
+        <p>Maps each pixel: <code>0 → 0</code>, <code>1 → 255</code> (multiply by 255).</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+      <div class="api-entry">
+        <h4>int convertToRGB() override</h4>
+        <p>Maps each pixel to RGB channels: <code>0 → (0,0,0)</code>, <code>1 → (255,255,255)</code>.</p>
+        <p><span class="api-label label-returns">returns</span> <code>0</code></p>
+      </div>
+
+    </article>
+  </div><!-- /.layout-sidebar -->
+</main>
+
+<footer>
+  <p>
+    Image Processor · C++ Image Processing Library ·
+    <a href="https://github.com/Andy-Borch/Image-Processor" target="_blank" rel="noopener">GitHub Repository</a>
+  </p>
+</footer>
+
+</body>
+</html>

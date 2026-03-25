@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Processor — Documentation</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────────── -->
+<nav class="topnav" aria-label="Main navigation">
+  <div class="topnav-inner">
+    <span class="nav-logo">🖼 <span>Image</span>Processor</span>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="getting-started.html">Getting Started</a></li>
+      <li><a href="usage.html">Usage</a></li>
+      <li><a href="architecture.html">Architecture</a></li>
+      <li><a href="api.html">API Reference</a></li>
+      <li><a href="file-formats.html">File Formats</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────── -->
+<section class="hero">
+  <h1>C++ <span>Image Processor</span></h1>
+  <p>
+    A multi-format image processing library written in modern C++.
+    Supports RGB, Grayscale, and Binary images with normalization,
+    format conversion, checksum analysis, and Pearson correlation.
+  </p>
+  <div class="hero-badges">
+    <span class="badge">C++11 / C++14</span>
+    <span class="badge">PGM · PPM · PBM</span>
+    <span class="badge">Doxygen</span>
+    <span class="badge">GNU Make</span>
+    <span class="badge">Valgrind Optimized</span>
+    <span class="badge">Colorado State University</span>
+  </div>
+  <div class="hero-actions">
+    <a href="getting-started.html" class="btn btn-primary">⚡ Get Started</a>
+    <a href="api.html" class="btn btn-outline">📖 API Reference</a>
+  </div>
+</section>
+
+<!-- ── Main content ───────────────────────────────────────── -->
+<main class="page-wrapper">
+
+  <!-- What is it? -->
+  <section style="margin-bottom:3rem;">
+    <h2 class="section-title">What is Image Processor?</h2>
+    <p class="section-subtitle">An academic C++ project that evolved through 7 development assignments</p>
+
+    <p>
+      Image Processor is a command-line C++ application that reads, validates, transforms,
+      and analyses digital images stored in the portable bitmap family of formats (PBM, PGM, PPM).
+      Built without any external image libraries, it relies entirely on the C++ Standard Library
+      and demonstrates core object-oriented design patterns such as polymorphism and inheritance.
+    </p>
+
+    <div class="callout callout-info" style="margin-top:1.5rem;">
+      <strong>📌 Current Capability</strong>
+      The latest build computes the <strong>Pearson correlation coefficient</strong> between two
+      grayscale images — a real-world metric for measuring how similar two images are pixel by pixel.
+    </div>
+  </section>
+
+  <!-- Feature cards -->
+  <section style="margin-bottom:3rem;">
+    <h2 class="section-title">Key Features</h2>
+    <p class="section-subtitle">Everything you can do with the library today</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Multi-Format Support</h3>
+        <p>Read and write RGB (<code>.ppm</code>), Grayscale (<code>.pgm</code>), and Binary (<code>.pbm</code>) images in Netpbm format.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Pearson Correlation</h3>
+        <p>Compute the correlation coefficient between two grayscale images — values range from <code>-1</code> (inverse) to <code>1</code> (identical).</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Format Conversion</h3>
+        <p>Convert between RGB, Grayscale, and Binary via virtual polymorphic methods on the shared <code>Image</code> base class.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⚖️</div>
+        <h3>Image Normalization</h3>
+        <p>Regularize pixel intensities to the full 0–255 range using min-max rescaling on each channel.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✅</div>
+        <h3>Checksum Analysis</h3>
+        <p>Generate and compare per-row and per-column checksums to verify image integrity and detect corruption.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Optimized Performance</h3>
+        <p>Valgrind-profiled and optimized loading path reduces instruction count by ~3% on 1920×1080 images.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Thorough Validation</h3>
+        <p>Every input file is validated: magic number, header fields, pixel values, and file-length consistency.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <h3>Doxygen Documented</h3>
+        <p>All classes and methods carry Doxygen-compatible comments; run <code>doxygen Doxyfile</code> to generate a full HTML reference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick start snippet -->
+  <section style="margin-bottom:3rem;">
+    <h2 class="section-title">Quick Start</h2>
+    <p class="section-subtitle">Up and running in three commands</p>
+
+    <ol class="steps">
+      <li>
+        <div>
+          <h4>Clone the repository</h4>
+          <pre><code>git clone https://github.com/Andy-Borch/Image-Processor.git
+cd Image-Processor</code></pre>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Build the executable</h4>
+          <pre><code>make ImageProcessor</code></pre>
+        </div>
+      </li>
+      <li>
+        <div>
+          <h4>Run with two grayscale images</h4>
+          <pre><code>./ImageProcessor image1.pgm image2.pgm
+# → Prints Pearson correlation coefficient, e.g. 0.9982</code></pre>
+        </div>
+      </li>
+    </ol>
+
+    <a href="getting-started.html" class="btn btn-primary" style="margin-top:.5rem;">Full installation guide →</a>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Architecture overview -->
+  <section style="margin-bottom:3rem;">
+    <h2 class="section-title">Architecture at a Glance</h2>
+    <p class="section-subtitle">Five classes, one clear inheritance hierarchy</p>
+
+    <div class="class-tree">
+      <span class="root">Image</span>  &nbsp;&nbsp;(abstract base class)<br>
+      ├── <span class="child">ColorImage</span>  &nbsp;&nbsp;&nbsp;&nbsp;RGB / PPM (P3)<br>
+      ├── <span class="child">GrayscaleImage</span>  &nbsp;Grayscale / PGM (P2)<br>
+      └── <span class="child">BinaryImage</span>  &nbsp;&nbsp;&nbsp;Binary / PBM (P1)<br>
+      <br>
+      <span class="root">Pixel</span>  &nbsp;&nbsp;(standalone value type — RGB · Grayscale · Binary)
+    </div>
+
+    <p style="margin-top:1rem;">
+      The <code>Image</code> base class holds all shared state (dimensions, pixel data, checksums)
+      and declares pure-virtual methods (<code>loadImage</code>, <code>regularize</code>,
+      <code>convertToBinary</code>, <code>convertToGrayscale</code>, <code>convertToRGB</code>)
+      that each subclass overrides with format-specific logic.
+    </p>
+
+    <a href="architecture.html" class="btn btn-primary" style="margin-top:1rem;">Explore architecture →</a>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Documentation pages -->
+  <section>
+    <h2 class="section-title">Documentation Sections</h2>
+    <p class="section-subtitle">Everything you need in one place</p>
+
+    <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));">
+      <a href="getting-started.html" class="card" style="text-decoration:none;color:inherit;">
+        <div class="card-icon">⚡</div>
+        <h3>Getting Started</h3>
+        <p>Prerequisites, build instructions, and your first run.</p>
+      </a>
+      <a href="usage.html" class="card" style="text-decoration:none;color:inherit;">
+        <div class="card-icon">🖥</div>
+        <h3>Usage Guide</h3>
+        <p>CLI syntax, examples, exit codes, and error messages.</p>
+      </a>
+      <a href="architecture.html" class="card" style="text-decoration:none;color:inherit;">
+        <div class="card-icon">🏗</div>
+        <h3>Architecture</h3>
+        <p>Class hierarchy, design patterns, and data flow.</p>
+      </a>
+      <a href="api.html" class="card" style="text-decoration:none;color:inherit;">
+        <div class="card-icon">📖</div>
+        <h3>API Reference</h3>
+        <p>Every class, method signature, parameter, and return value.</p>
+      </a>
+      <a href="file-formats.html" class="card" style="text-decoration:none;color:inherit;">
+        <div class="card-icon">📄</div>
+        <h3>File Formats</h3>
+        <p>PBM, PGM, and PPM format specifications with examples.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <p>
+    Image Processor · C++ Image Processing Library ·
+    <a href="https://github.com/Andy-Borch/Image-Processor" target="_blank" rel="noopener">GitHub Repository</a>
+  </p>
+  <p style="margin-top:.35rem;font-size:.75rem;opacity:.7;">
+    Developed at Colorado State University · Documentation generated for the Image Processor project
+  </p>
+</footer>
+
+</body>
+</html>
